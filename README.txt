@@ -1,5 +1,5 @@
 ##############################
-<h1>Created by: RageCrezz TM (Junji Ito - Hyura#1337 on Discord)</h1>
+Created by: RageCrezz TM (Junji Ito - Hyura#1337 on Discord)
 
 This repository is for developing purposes only, hosting the Wesbite http://eternal-light.eu/
 
