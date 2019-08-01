@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.card-wrapper {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -25px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card {
+    width: 15rem;
+    background-color: #ebeef8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+
+.card .card-img {
+    width: 90%;
+    height: 13rem;
+    margin-top: -0.5rem;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 0, 100% 72%, 50% 100%, 0 72%, 0 0);
+}
+
+.profile-img {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -5rem;
+    z-index: 2;
+    border: 0.5rem solid #fff;
+}
+
+.card h1 {
+    font-size: 26px;
+    color: #333;
+    margin: 1.5rem 0;
+}
+
+.job-title {
+    color: #777;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0;
+    margin-top: -30%;
+}
+
+.about {
+    font-size: 14px;
+    margin: 1.5rem 0;
+    font-style: italic;
+    text-align: center;
+    color: #333;
+}
+
+.social-media {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    margin-bottom: 0;
+}
+
+.social-media i {
+    font-size: 25px;
+}
+
+.fa-steam-square {
+    color: #000;
+}
+
+.fa-twitch {
+    color: #6441a5;
+}
+
+.fa-youtube-square {
+    color: #ff0000;
+}
+
+.fa-twitter-square {
+    color: #38A1F3;
+}
+
+.fa-steam-square:hover,
+.fa-twitch:hover,
+.fa-youtube-square:hover,
+.fa-twitter-square:hover {
+    transition: .5s;
+    color: rgb(56, 56, 56);
+}
+
+@media screen and (min-width: 700px){
+    .card-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        margin: 2rem;
+        transition: transform .5s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="styles/style-cards.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <title>Eternal Light - FFXIV Free Company</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 1900) {
+                $("nav").addClass("sticky");
+            } else {
+                $("nav").removeClass("sticky");
+            }
+            }
+        );
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(window).scroll( function(){
+                $('.hideme').each( function(i){
+                    var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    if( bottom_of_window >= bottom_of_object-50 ){
+                        $(this).animate({'opacity':'1'},1500);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(window).scroll(function () {
+            var scroll_top = $(this).scrollTop();
+            if (scroll_top >= 1900) {
+                $("#opacity").addClass("opacity-ul");
+            } else {
+                $("#opacity").removeClass("opacity-ul");
+            }
+        });
+    </script>
+
+</head>
+<body>
+
+    <header>
+
+    <nav>
+        <div class="logo">
+            <img src="media/Crest.png">
+            <p class="logo-txt">Eternal Light</p>
+        </div>
+        <div class="ul-bg">
+        <ul id="opacity">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#content">About us</a></li>
+            <li><a href="#">Apply now!</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        </div>
+    </nav>
+
+        <div class="welcome">
+            <h1>Welcome to the Eternal Light!</h1>
+            <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
+        </div>
+
+        <a href="#content" class="button">Get to know us!</a>
+
+    </header>
+
+
+    <div class="content-width">
+    <div class="content" id="content">
+        <div class="content-1-inner1 hideme">
+            <h1>Who are we?</h1>
+            <p>The Eternal Light Free Company on Ragnarok (est. 2018) is a close-knitted family, where having fun and going on adventures together is fundamental and key. Due common activities and events, or just chilling together at one place, it never gets boring! If you are searching for a chill FC with a known circle, then this may be the right place for you!</p>
+        </div>
+        <div class="content-1-inner2 hideme">
+            <img src="media/bg3.png">
+        </div>
+    </div>
+    </div>
+
+    <div class="card-wrapper hideme">
+        <div class="card">
+            <img src="media/yama.png" alt="card background" class="card-img">
+            <img src="media/yama-profile-img.png" alt="profile image" class="profile-img">
+            <h1>Yama Azumi</h1>
+            <p class="job-title">Eternal Light - Leader</p>
+            <p class="about">
+                The Leader of the Eternal Light Free Company. Administrating basically everything. Memeful Delight and a very yummy snack.
+            </p>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="card">
+            <img src="media/ito.png" alt="card background" class="card-img">
+            <img src="media/ito-profile-img.png" alt="profile image" class="profile-img">
+            <h1>Junji Ito</h1>
+            <p class="job-title">Eternal Light - Co-Leader</p>
+            <p class="about">
+                Moderating the Discord, Front-End Developer and administrating the structure of the Free Company. (FC Dumbo as well)
+            </p>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="card">
+            <img src="media/mana.png" alt="card background" class="card-img">
+            <img src="media/mana-profile-img.png" alt="profile image" class="profile-img">
+            <h1>Mana Kurogane</h1>
+            <p class="job-title">Eternal Light - Officer</p>
+            <p class="about">
+                The Free Company's glorious Teddybear. Motivated to organize event- and fun-based content for our members.
+            </p>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="card">
+            <img src="media/cae.png" alt="card background" class="card-img">
+            <img src="media/cae-profile-img.png" alt="profile image" class="profile-img">
+            <h1>Caelin Saeria</h1>
+            <p class="job-title">Eternal Light - Officer</p>
+            <p class="about">
+                Our very strategic and intelligent Officer. Working on the management of the member-list and keeping an eye on behaviour.
+            </p>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+        <div class="card">
+            <img src="media/yama.png" alt="card background" class="card-img">
+            <img src="media/yama-profile-img.png" alt="profile image" class="profile-img">
+            <h1>Yama Azumi</h1>
+            <p class="job-title">Leader of Eternal Light</p>
+            <p class="about">
+                Fresh banter and sucking Ito's dick
+            </p>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="lorem2">
+        <p class="p2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
+    </div>
+    <div class="lorem">
+        <p class="p1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
+    </div>
+    <div class="lorem2">
+        <p class="p2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
+    </div>
+
+
+</body>
+
+</html>
