@@ -16,6 +16,7 @@ body {
 header {
     background: url(../media/pic1.png) no-repeat 50% 50%;
     background-position: center;
+    background-size: cover;
     height: 100vh;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -294,8 +295,8 @@ header p {
 }
 
 .content-1-inner2 img {
-    width: 640px;
-    height: 360px;
+    width: 100%;
+    height: auto;
 }
 
 .lorem {
@@ -329,6 +330,55 @@ header p {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.faq {
+    width: 100%;
+    display: block;
+    background-color: #f3f3f3;
+    padding: 5px;
+}
+
+.faq h1 {
+    text-align: center;
+    font-size: 32px;
+    padding: 25px;
+    font-weight: 100;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    margin: 0 20%;
+    width: 60%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+}
+
+.activeSpoiler .collapsible:hover {
+    background-color: #555;
+}
+
+.contentSpoiler {
+    width: 60%;
+    margin: 0 20%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #d8d8d8;
+    text-align: center;
+}
+
+.contentSpoiler p {
+    padding-top: 15px;
+}
+
+.collapsible-margin {
+    padding-bottom: 10px;
 }
 
 /* width */
