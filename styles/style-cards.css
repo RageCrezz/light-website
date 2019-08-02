@@ -22,9 +22,10 @@ a {
 }
 
 .card {
-    width: 15rem;
+    width: 14rem;
     background-color: #ebeef8;
     display: flex;
+    padding: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
