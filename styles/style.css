@@ -13,6 +13,14 @@ body {
     scroll-behavior: smooth;
 }
 
+body p::selection, a::selection, h1::selection, img::selection {
+    background-color: rgba(0,0,0,.2)
+}
+
+body h1 {
+    color: #ad342b;
+}
+
 header {
     background: url(../media/pic1.gif) no-repeat 50% 50%;
     background-position: center;
@@ -285,6 +293,7 @@ header p {
 
 .content-1-inner1 h1 {
     padding: 15px;
+    font-weight: 100;
 }
 
 .content-1-inner2 {
@@ -369,7 +378,7 @@ header p {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-    background-color: #d8d8d8;
+    background-color: white;
     text-align: center;
 }
 
@@ -399,4 +408,107 @@ header p {
     background: black;
     background: rgba(255,255,255,0.6);
     border-radius: 10px;
+}
+
+
+/* Footer Start */
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(111, 111, 111);
+    display: flex;
+    position: absolute;
+}
+
+.footer-upper {
+    background-color: rgb(111,111,111);
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 0 20%;
+    height: 100%;
+}
+
+.footer-upper h1 {
+    color: white;
+    font-size: 24px;
+}
+
+.footer-upper p {
+    color: #d0d0d0;
+    margin: 5px 0 0 0;
+    font-size: .9rem;
+}
+
+.footer-upper a {
+    color: #d0d0d0;
+    margin: 5px 0 0 0;
+    font-size: .9rem;
+}
+
+.footer-upper a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.left-to-right {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.footer-crest img {
+    width: 100px;
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-right: 25px;
+}
+
+.footer-firstchild {
+    width: 15%;
+    margin: 50px 25px 50px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bolded {
+    font-weight: 700;
+}
+
+.footer-secondchild {
+    width: 15%;
+    margin: 50px 25px 50px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-socialmedia {
+    width: 15%;
+    margin: 50px 25px 50px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-socialmedia a {
+    color: #d0d0d0;
+}
+
+.footer-tos {
+    width: 15%;
+    margin: 50px 25px 50px 25px;
+}
+
+.footer-lower {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(56, 56, 56);
+}
+
+.footer-lower p {
+    margin: 15px;
+    color: white;
+    font-weight: 100;
 }

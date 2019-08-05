@@ -34,6 +34,17 @@
     </script>
 
     <script>
+        $(window).scroll(function () {
+            var scroll_top = $(this).scrollTop();
+            if (scroll_top >= 1900) {
+                $("#opacity").addClass("opacity-ul");
+            } else {
+                $("#opacity").removeClass("opacity-ul");
+            }
+        });
+    </script>
+
+    <script>
         $(document).ready(function() {
             $(window).scroll( function(){
                 $('.hideme').each( function(i){
@@ -45,17 +56,6 @@
                     }
                 });
             });
-        });
-    </script>
-
-    <script>
-        $(window).scroll(function () {
-            var scroll_top = $(this).scrollTop();
-            if (scroll_top >= 1900) {
-                $("#opacity").addClass("opacity-ul");
-            } else {
-                $("#opacity").removeClass("opacity-ul");
-            }
         });
     </script>
 
@@ -72,9 +72,9 @@
         <div class="ul-bg">
         <ul id="opacity">
             <li><a href="#" class="active">Home</a></li>
-            <li><a href="#content">About us</a></li>
+            <li><a href="#about">About us</a></li>
             <li><a href="#">Apply now!</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#">Login</a></li>
         </ul>
         </div>
@@ -85,13 +85,13 @@
             <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
         </div>
 
-        <a href="#content" class="button">Get to know us!</a>
+        <a href="#about" class="button">Get to know us!</a>
 
     </header>
 
 
     <div class="content-width">
-    <div class="content" id="content">
+    <div class="content" id="about">
         <div class="content-1-inner1 hideme">
             <h1>Who are we?</h1>
             <p>The Eternal Light Free Company on Ragnarok (est. 2018) is a close-knitted family, where having fun and going on adventures together is fundamental and key. Due common activities and events, or just chilling together at one place, it never gets boring! If you are searching for a chill FC with a known circle, then this may be the right place for you!</p>
@@ -196,32 +196,32 @@
             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
     </div>
 
-    <div class="faq">
+    <div class="faq" id="faq">
 
         <h1>Frequently Asked Questions</h1>
         <div class="collapsible-margin">
-        <button class="collapsible">Sample Question? 1</button>
+        <button class="collapsible"><a>Sample Question? 1</a></button>
         <div class="contentSpoiler">
             <p>Sample Answer to Question.</p>
         </div>
         </div>
 
         <div class="collapsible-margin">
-        <button class="collapsible">Sample Question? 2</button>
+        <button class="collapsible"><a>Sample Question? 2</a></button>
         <div class="contentSpoiler">
             <p>Sample Answer to Question.</p>
         </div>
         </div>
 
         <div class="collapsible-margin">
-        <button class="collapsible">Sample Question? 3</button>
+        <button class="collapsible"><a>Sample Question? 3</a></button>
         <div class="contentSpoiler">
             <p>Sample Answer to Question.</p>
         </div>
         </div>
 
         <div class="collapsible-margin">
-        <button class="collapsible">Sample Question? 4</button>
+            <button class="collapsible"><a>Sample Question? 4</a></button>
         <div class="contentSpoiler">
             <p>Sample Answer to Question.</p>
         </div>
@@ -254,6 +254,46 @@
 
             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
     </div>
+
+
+<footer>
+    <div class="footer-upper left-to-right">
+        <div class="footer-crest">
+            <img src="media/Crest.gif">
+        </div>
+        <div class="footer-firstchild">
+            <h1>Eternal Light</h1>
+            <p>A close-knit family where everybody is welcome.</p>
+            <p class="bolded">Join us now!</p>
+        </div>
+        <div class="footer-secondchild">
+            <h1>Explore</h1>
+            <a href="#">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#">Apply Now!</a>
+            <a href="#faq">Frequently Asked Questions</a>
+            <a href="#">Login</a>
+        </div>
+        <div class="footer-socialmedia">
+            <h1>Follow</h1>
+            <a href="#">Streamer Here</a>
+            <a href="#">Streamer Here</a>
+            <a href="#">Streamer Here</a>
+        </div>
+        <div class="footer-tos">
+            <h1>Legal</h1>
+            <p>Terms</p>
+            <p>Privacy</p>
+        </div>
+    </div>
+
+    <div class="footer-lower">
+        <p>August 2019 - Created and Hosted by Ragecrezz TM. - For more information please visit the Terms Tab.</p>
+    </div>
+
+
+</footer>
+
 
 </body>
 
