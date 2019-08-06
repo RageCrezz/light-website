@@ -559,8 +559,14 @@ footer {
     background-color: rgb(56, 56, 56);
 }
 
-.footer-lower p {
+.footer-lower a {
     margin: 15px;
     color: white;
     font-weight: 100;
+	text-decoration: none;
+}
+
+.footer-lower a:hover {
+	color: #d0d0d0;
+	text-decoration: none;
 }
