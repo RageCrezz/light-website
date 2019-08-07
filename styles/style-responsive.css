@@ -38,16 +38,22 @@
     }
 
     nav .logo img {
-        display: none;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        float: left;
+        margin: 10px 0 10px 10px;
+        z-index: 999;
     }
 
     nav .logo p {
-        display: flex;
+        width: 100%;
+        font-size: 26px;
+        display: none;
         float: left;
+        padding: 16px 0 16px 16px;
         margin: 0;
-        padding: 10px;
         top: 50%;
-        flex: 0 0 65%;
     }
 
     .showing {
@@ -86,7 +92,7 @@
     }
 
     .content-1-inner1 {
-        width: 60%;
+        width: 100%;
         padding: 25px;
     }
 
@@ -99,21 +105,34 @@
     }
 
     .lorem {
-        padding-top: 50px;
+        padding-top: 75px;
+        text-align: left;
+    }
+
+    .lorem p {
+        text-align: left;
+        width: 100%;
+        padding: 15px;
     }
 
     .lorem2{
-        padding-top: 50px;
+        text-align: left;
+        padding-top: 75px;
+    }
+
+    .lorem2 p {
+        text-align: left;
+        width: 100%;
+        padding: 15px;
     }
 
     #faq {
-        padding-top: 50px;
+        padding-top: 75px;
     }
 
     .contentslider {
         display: block;
         overflow: hidden;
-        height: 200px;
         position: relative;
         border-top: 1px solid rgba(0,0,0,.1);
         border-bottom: 1px solid rgba(0,0,0,.1);
@@ -121,7 +140,7 @@
 
     .contentslider h1 {
         z-index: 999;
-        font-size: 36px;
+        font-size: 25px;
         text-align: right;
         float: right;
         width: 20%;
@@ -134,13 +153,24 @@
     .contentslider p {
         z-index: 999;
         font-weight: 100;
-        font-size: 20px;
+        font-size: 18px;
         text-align: right;
         position: absolute;
         width: 20%;
-        padding-top: 60px;
+        padding-top: 50px;
         padding-right: 25px;
         color: black;
+    }
+
+    @media screen and (min-width: 600px) and (max-width: 768px) {
+        .contentslider h1 {
+            font-size: 40px;
+        }
+
+        .contentslider p {
+            font-size: 24px;
+            padding-top: 60px;
+        }
     }
 
     .contentslider figure div {
@@ -232,6 +262,43 @@
         96% {
             left: 0%;
         }
+    }
+
+    .footer-crest {
+        display: none;
+    }
+
+    .left-to-right {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-upper {
+        width: 100%;
+        margin: 0;
+    }
+
+    .footer-firstchild {
+        width: 75%;
+        margin: 25px 25px;
+    }
+
+    .footer-secondchild {
+        width: 75%;
+        display: none;
+        margin: 25px 25px;
+    }
+
+    .footer-socialmedia {
+        width: 75%;
+        margin: 25px 25px;
+    }
+
+    .footer-tos {
+        width: 75%;
+        margin: 25px 25px;
     }
 }
 
