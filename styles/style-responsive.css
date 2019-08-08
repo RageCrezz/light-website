@@ -299,6 +299,10 @@
         width: 75%;
         margin: 25px 25px;
     }
+
+    .hideme {
+        opacity: 1;
+    }
 }
 
 

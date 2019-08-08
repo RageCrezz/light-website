@@ -21,62 +21,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Eternal Light - FFXIV Free Company</title>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript">
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-
-            if ($(this).width() <= 768) {
-                $("nav").removeClass("sticky");
-            }
-            else if (scroll >= 1900) {
-                $("nav").addClass("sticky");
-            } else {
-                $("nav").removeClass("sticky");
-            }
-            }
-        );
-    </script>
-
-    <script>
-        $(window).scroll(function () {
-            var scroll_top = $(this).scrollTop();
-
-            if ($(this).width() <= 768) {
-                $("#opacity").removeClass("opacity-ul");
-            }
-            else if (scroll_top >= 1900) {
-                $("#opacity").addClass("opacity-ul");
-            } else {
-                $("#opacity").removeClass("opacity-ul");
-            }
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $(window).scroll( function(){
-                $('.hideme').each( function(i){
-                    var bottom_of_object = $(this).position().top + $(this).outerHeight();
-                    var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-                    if( bottom_of_window >= bottom_of_object-50 ){
-                        $(this).animate({'opacity':'1'},1500);
-                    }
-                });
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".menu-icon").on("click", function() {
-                $("nav ul").toggleClass("showing");
-            });
-            $("nav ul").on("click", function() {
-                $("nav ul").removeClass("showing");
-            });
-        });
-    </script>
+    <script src="myScript.js"></script>
+    
 
 </head>
 <body>
