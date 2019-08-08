@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="stylesheet" type="text/css" href="styles/style-cards.css">
+    <link rel="stylesheet" type="text/css" href="styles/style-responsive.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,7 +25,10 @@
         $(window).scroll(function() {
             var scroll = $(window).scrollTop();
 
-            if (scroll >= 1900) {
+            if ($(this).width() <= 768) {
+                $("nav").removeClass("sticky");
+            }
+            else if (scroll >= 1900) {
                 $("nav").addClass("sticky");
             } else {
                 $("nav").removeClass("sticky");
@@ -36,7 +40,11 @@
     <script>
         $(window).scroll(function () {
             var scroll_top = $(this).scrollTop();
-            if (scroll_top >= 1900) {
+
+            if ($(this).width() <= 768) {
+                $("#opacity").removeClass("opacity-ul");
+            }
+            else if (scroll_top >= 1900) {
                 $("#opacity").addClass("opacity-ul");
             } else {
                 $("#opacity").removeClass("opacity-ul");
@@ -59,15 +67,31 @@
         });
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                $("nav ul").toggleClass("showing");
+            });
+            $("nav ul").on("click", function() {
+                $("nav ul").removeClass("showing");
+            });
+        });
+    </script>
+
 </head>
 <body>
 
     <header>
 
     <nav>
+        <div class="both-nav">
         <div class="logo">
             <img src="media/Crest.gif">
             <p class="logo-txt">Eternal Light</p>
+        </div>
+        <div class="menu-icon">
+            <i class="fa fa-bars fa-2x"></i>
+        </div>
         </div>
         <div class="ul-bg">
         <ul id="opacity">
@@ -89,8 +113,7 @@
 
     </header>
 
-
-    <div class="content-width">
+        <div class="content-width">
     <div class="content" id="about">
         <div class="content-1-inner1 hideme">
             <h1>Who are we?</h1>
@@ -101,6 +124,38 @@
         </div>
     </div>
     </div>
+
+
+    <div class="contentslider">
+        <figure>
+            <div class="slide">
+                <h1>Yama Azumi</h1>
+                <p class="job">Eternal Light - Leader</p>
+                <img class="background-slider" src="media/yama-banner.gif"/>
+            </div>
+            <div class="slide">
+                <h1>Junji Ito</h1>
+                <p class="job">Eternal Light - Co. Leader</p>
+                <img class="background-slider" src="media/ito-banner.gif"/>
+            </div>
+            <div class="slide">
+                <h1>Mana Kurogane</h1>
+                <p class="job">Eternal Light - Officer</p>
+                <img class="background-slider" src="media/mana-banner.gif"/>
+            </div>
+            <div class="slide">
+                <h1>Caelin Saeria</h1>
+                <p class="job">Eternal Light - Officer</p>
+                <img class="background-slider" src="media/cae-banner.gif"/>
+            </div>
+            <div class="slide">
+                <h1>Reverie Shirokami</h1>
+                <p class="job">Eternal Light - Officer</p>
+                <img class="background-slider" src="media/rev-banner.gif"/>
+            </div>
+        </figure>
+    </div>
+
 
     <div class="card-wrapper hideme">
         <div class="card">

@@ -38,6 +38,11 @@ header::after {
     clear: both;
 }
 
+.both-nav {
+    display: flex;
+    flex-direction: row;
+}
+
 nav {
     position: sticky;
     top: 0;
@@ -75,6 +80,18 @@ nav .logo p {
     color: #fff;
     text-shadow: 2px 3px 15px black;
     padding: 15px;
+}
+
+.menu-icon {
+    width: 100%;
+    background: rgb(111, 111, 111);
+    float: right;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 20px 24px;
+    cursor: pointer;
+    color: #000;
+    display: none;
 }
 
 nav ul {
@@ -261,7 +278,9 @@ header p {
     margin: 4px 2px;
     cursor: pointer;
     top: 75%;
-    left: 45%;
+    width: 20%;
+    left: 40%;
+    right: 40%;
     position: absolute;
 }
 
@@ -569,4 +588,8 @@ footer {
 .footer-lower a:hover {
 	color: #d0d0d0;
 	text-decoration: none;
+}
+
+.contentslider {
+    display: none;
 }
