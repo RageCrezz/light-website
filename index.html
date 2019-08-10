@@ -3,10 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="icon" href="media/Crest.gif">
-    <link rel="stylesheet" type="text/css" href="styles/style-cards.css">
-    <link rel="stylesheet" type="text/css" href="styles/style-responsive.css">
+    <link rel="stylesheet" href="styles/countdown.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -21,295 +19,34 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Eternal Light - FFXIV Free Company</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="myScript.js"></script>
 
 
 </head>
 <body>
+    <div class="img-above">
+        <img src="media/Crest.png">
+    </div>
 
-    <header>
-
-    <nav>
-        <div class="both-nav">
-        <div class="logo">
-            <img src="media/Crest.gif">
-            <p class="logo-txt">Eternal Light</p>
-        </div>
-        <div class="menu-icon">
-            <i class="fa fa-bars fa-2x"></i>
-        </div>
-        </div>
-        <div class="ul-bg">
-        <ul id="opacity">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#about">About us</a></li>
-            <li><a href="#">Apply now!</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#events">FC Events</a></li>
-        </ul>
-        </div>
-    </nav>
-
-        <div class="welcome">
-            <h1>Welcome to the Eternal Light!</h1>
+    <div class="center">
+        <div class="content-above">
+            <h1><span>Eternal Light</span><br>Official FC Website!</h1>
             <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
         </div>
-
-        <a href="#about" class="button">Get to know us!</a>
-
-    </header>
-
-        <div class="content-width">
-    <div class="content" id="about">
-        <div class="content-1-inner1 hideme">
-            <h1>Who are we?</h1>
-            <p>The Eternal Light Free Company on Ragnarok (est. 2018) is a close-knitted family, where having fun and going on adventures together is fundamental and key. Due common activities and events, or just chilling together at one place, it never gets boring! If you are searching for a chill FC with a known circle, then this may be the right place for you!</p>
-        </div>
-        <div class="content-1-inner2 hideme">
-            <img src="media/bg3.gif">
-        </div>
-    </div>
+        <div id="clock"></div>
     </div>
 
-
-    <div class="contentslider">
-        <figure>
-            <div class="slide">
-                <h1>Yama Azumi</h1>
-                <p class="job">Eternal Light - Leader</p>
-                <img class="background-slider" src="media/yama-banner.gif"/>
-            </div>
-            <div class="slide">
-                <h1>Junji Ito</h1>
-                <p class="job">Eternal Light - Co. Leader</p>
-                <img class="background-slider" src="media/ito-banner.gif"/>
-            </div>
-            <div class="slide">
-                <h1>Mana Kurogane</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img class="background-slider" src="media/mana-banner.gif"/>
-            </div>
-            <div class="slide">
-                <h1>Caelin Saeria</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img class="background-slider" src="media/cae-banner.gif"/>
-            </div>
-            <div class="slide">
-                <h1>Reverie Shirokami</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img class="background-slider" src="media/rev-banner.gif"/>
-            </div>
-        </figure>
-    </div>
-
-
-    <div class="card-wrapper hideme">
-        <div class="card">
-            <img src="media/yama.gif" alt="card background" class="card-img">
-            <img src="media/yama-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Yama Azumi</h1>
-            <p class="job-title">Eternal Light - Leader</p>
-            <p class="about">
-                The Leader of the Eternal Light Free Company. Administrating basically everything. Memeful Delight and a very yummy snack.
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/ito.gif" alt="card background" class="card-img">
-            <img src="media/ito-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Junji Ito</h1>
-            <p class="job-title">Eternal Light - Co-Leader</p>
-            <p class="about">
-                Moderating the Discord, Front-End Developer and administrating the structure of the Free Company. (FC Dumbo as well)
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/mana.gif" alt="card background" class="card-img">
-            <img src="media/mana-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Mana Kurogane</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                The Free Company's glorious Teddybear. Motivated to organize event- and fun-based content for our members.
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/cae.gif" alt="card background" class="card-img">
-            <img src="media/cae-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Caelin Saeria</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                Our very strategic and intelligent Officer. Working on the management of the member-list and keeping an eye on behaviour.
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/rev.gif" alt="card background" class="card-img">
-            <img src="media/rev-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Reverie Shirokami</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                Our Free Company's very kind Officer, who keeps an eye on good behaviour and comes up with great ideas of setting content.
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="lorem2">
-        <p class="p2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
-    </div>
-    <div class="lorem">
-        <p class="p1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
-    </div>
-
-    <div class="faq" id="faq">
-
-        <h1>Frequently Asked Questions</h1>
-        <div class="collapsible-margin">
-        <button class="collapsible"><a>Sample Question? 1</a></button>
-        <div class="contentSpoiler">
-            <p>Sample Answer to Question.</p>
-        </div>
-        </div>
-
-        <div class="collapsible-margin">
-        <button class="collapsible"><a>Sample Question? 2</a></button>
-        <div class="contentSpoiler">
-            <p>Sample Answer to Question.</p>
-        </div>
-        </div>
-
-        <div class="collapsible-margin">
-        <button class="collapsible"><a>Sample Question? 3</a></button>
-        <div class="contentSpoiler">
-            <p>Sample Answer to Question.</p>
-        </div>
-        </div>
-
-        <div class="collapsible-margin">
-            <button class="collapsible"><a>Sample Question? 4</a></button>
-        <div class="contentSpoiler">
-            <p>Sample Answer to Question.</p>
-        </div>
-        </div>
-
-    </div>
-
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function(){
-                this.classList.toggle("activeSpoiler");
-                var contentSpoiler = this.nextElementSibling;
-                if (contentSpoiler.style.maxHeight) {
-                    contentSpoiler.style.maxHeight = null;
-                }
-                else {
-                    contentSpoiler.style.maxHeight = contentSpoiler.scrollHeight + "px";
-                }
-            })
-        }
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="countdown.js"></script>
+    <script type="text/javascript">
+        $('#clock').countdown('2019/9/1', function(event) {
+            $(this).html(event.strftime(''
+            +'<div><span>%D</span><span>Days</span></div>'
+            +'<div><span>%H</span><span>Hours</span></div>'
+            +'<div><span>%M</span><span>Minutes</span></div>'
+            +'<div><span>%S</span><span>Seconds</span></div>'
+            ));
+        });
     </script>
 
-    <div class="lorem" id="events">
-        <p class="p1">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
-    </div>
-
-    <div class="lorem2 quotes-wrapper">
-        <div class="quotes">
-            <p>"Eternal Light is a group of friends where you can be yourself and hang out!"<br> - Bjorn Heim</p>
-            <p>"A happy and inviting family!"<br> - Rizu Hagane</p>
-            <p>"Eternal Light is a family where I can feel accepted and cared for."<br> - Croella Regali</p>
-            <p>"FC is kind like coming home to my best friends, people you can always just pick up and run with and be your silly self doing it. It's a place that makes me feel welcome and like I can do anything if I just try and work together with my friends."<br> - Korilai Dotharl</p>
-        </div>
-        <div class="quotes-linkbuttons">
-            <a href="https://de.finalfantasyxiv.com/lodestone/freecompany/9237023573225354173/" target="_blank" class="quote-button">Eternal Light FC - Lodestone (Ragnarok)</a>
-            <a href="https://discord.gg/wN4K9Bm" target="_blank" class="quote-button">Eternal Light FC - Discord</a>
-        </div>
-    </div>
-
-
-<footer>
-    <div class="footer-upper left-to-right">
-        <div class="footer-crest">
-            <img src="media/Crest.gif">
-        </div>
-        <div class="footer-firstchild">
-            <h1>Eternal Light</h1>
-            <p>A close-knit family where everybody is welcome.</p>
-            <p class="bolded">Join us now!</p>
-        </div>
-        <div class="footer-secondchild">
-            <h1>Explore</h1>
-            <a href="#">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#">Apply Now!</a>
-            <a href="#faq">Frequently Asked Questions</a>
-            <a href="#events">Free Company Events</a>
-        </div>
-        <div class="footer-socialmedia">
-            <h1>Follow</h1>
-            <a href="#">Streamer Here</a>
-            <a href="#">Streamer Here</a>
-            <a href="#">Streamer Here</a>
-        </div>
-        <div class="footer-tos">
-            <h1>Legal</h1>
-            <p>Terms</p>
-            <p>Privacy</p>
-        </div>
-    </div>
-
-    <div class="footer-lower">
-        <a href="https://kzudev.com/" target="_blank"> &copy; Powered by KZU Dev. - August 2019</a>
-    </div>
-
-
-</footer>
-
-
 </body>
-
 </html>

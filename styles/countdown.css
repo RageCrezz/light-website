@@ -1,0 +1,162 @@
+html {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('../media/countdown-bg.gif') !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover !important;
+}
+
+.img-above {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 128px;
+}
+
+.img-above img {
+    width: 128px;
+}
+
+.center {
+    margin-top: 100px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.content-above {
+    background: rgba(255,255,255,.1);
+    padding: 25px 0;
+}
+
+.content-above p {
+    color: white;
+    font-size: 20px;
+    margin-top: 25px;
+    padding: 25px 0 -25px 0;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1em;
+}
+
+h1 span {
+    font-size: 2.5em;
+    line-height: .8em;
+}
+
+#clock {
+    display: flex;
+    width: 570px;
+    margin: 0 auto;
+}
+
+#clock div {
+    font-size: 25px;
+    position: relative;
+    width: 100%;
+    padding: 25px;
+    margin: 100px 5px 0 5px;
+    background: rgba(255,255,255,.9);
+    color: rgb(56,56,56);
+    border-radius: 5000px;
+}
+
+#clock div span {
+    display: block;
+    text-align: center;
+}
+
+#clock div span:nth-child(1) {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+#clock div span:nth-child(2) {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: -15px;
+}
+
+@media screen and (max-width: 768px) {
+    @media (max-width: 450px) {
+        body {
+            background-image: url('../media/mobile-countdown-bg.gif') !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    }
+
+    .img-above {
+        margin: 0;
+        width: 100%;
+        background: rgba(111,111,111,.8);
+    }
+
+    .img-above img {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 5px 0;
+        width: 75px;
+    }
+
+    h1 {
+        font-size: 25px !important;
+        margin: 0;
+        padding: 0;
+        text-shadow: 0 0 5px rgba(0,0,0,.6);
+    }
+
+    h1 span {
+        font-size: 40px;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .content-above p {
+        font-size: 15px !important;
+        text-shadow: 0 0 5px rgba(0,0,0,.6);
+    }
+
+    #clock {
+        display: flex;
+        width: 25%;
+        margin: 50px auto 50px auto;
+        flex-direction: column;
+    }
+
+    #clock div {
+        font-size: 10px;
+        display: block;
+        left: 0;
+        position: relative;
+        background: rgba(255,255,255,.9);
+        color: rgb(56,56,56);
+        border-radius: 5000px;
+        padding: 15px;
+        margin: 5px 0 0 0;
+    }
+
+    #clock div span:nth-child(1) {
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    #clock div span:nth-child(2) {
+        font-size: 15px;
+        font-weight: 800;
+    }
+}

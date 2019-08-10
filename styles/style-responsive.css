@@ -138,7 +138,7 @@
     }
 
     .contentslider h1 {
-        z-index: 999;
+        z-index: 2;
         font-size: 25px;
         text-align: right;
         float: right;
@@ -150,7 +150,7 @@
     }
 
     .contentslider p {
-        z-index: 999;
+        z-index: 2;
         font-weight: 100;
         font-size: 18px;
         text-align: right;
