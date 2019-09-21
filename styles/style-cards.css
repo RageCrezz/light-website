@@ -10,15 +10,19 @@ a {
 }
 
 .card-wrapper {
-    width: 80%;
+    width: 100%;
     display: flex;
     align-items: center;
     align-content: center;
     flex-direction: column;
     justify-content: center;
     margin-top: -25px;
-    margin-left: 10%;
+    margin-left: 0;
     margin-right: 10%;
+    background: white;
+    position: relative;
+    background: white;
+    z-index: 999;
 }
 
 .card {

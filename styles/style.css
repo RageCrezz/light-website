@@ -1,13 +1,17 @@
 html {
     height: 100%;
     width: 100%;
-    scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 body {
     color: #fff;
     margin: 0;
     padding: 0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-y: scroll;
+    overflow-x: hidden;
     height: 100%;
     width: 100%;
     scroll-behavior: smooth;
@@ -39,6 +43,8 @@ header {
     background: url(../media/pic1.gif) no-repeat 50% 50%;
     background-position: center;
     background-size: cover;
+    position: relative;
+    z-index: 999;
     height: 100vh;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -58,7 +64,7 @@ header::after {
 }
 
 nav {
-    position: sticky;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -67,7 +73,7 @@ nav {
     box-sizing: border-box;
     overflow-y: hidden;
     text-align: center;
-    z-index: 2;
+    z-index: 999;
 }
 
 nav img {
@@ -305,41 +311,73 @@ header p {
     -webkit-transition: .5s;
 }
 
-.hideme {
-    opacity: 0;
+.parallax-wrapper {
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+}
+
+.spacehold {
+    height: 500px;
+}
+
+.parallax-wrapper::before {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: url("../media/parallaxbg1.jpg") no-repeat center;
+    background-size: cover;
+    position: absolute;
+    z-index: -10;
+    transform: translateZ(-1px) scale(2);
+}
+
+.parallax-wrapper2 {
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+}
+
+.parallax-wrapper2::before {
+    content: '';
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background:url("../media/parallaxbg2.jpg") no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: -5;
+    transform: translateZ(-1px) scale(2);
 }
 
 .content {
     margin: 0;
     height: 100%;
-    display: flex;
-    flex-direction: row;
     justify-content: center;
     background-color: #fff;
     list-style: none;
+    position: relative;
+    z-index: 999;
 }
 
 .content-1-inner1 {
-    width: 15%;
+    position: relative;
+    width: 60%;
+    left: 20%;
+    right: 20%;
     margin: 50px;
 }
 
 .content-1-inner1 h1 {
-    padding: 15px;
+    padding: 100px 0 75px 0;
     font-weight: 100;
     font-size: 50px;
+    text-align: center;
 }
 
-.content-1-inner2 {
-    width: 640px;
-    margin: 50px;
-    float: right;
-    text-align: right;
-}
-
-.content-1-inner2 img {
-    width: 100%;
-    height: auto;
+.content-1-inner1 p {
+    padding: 0 0 125px 0;
 }
 
 .lorem {
@@ -347,6 +385,9 @@ header p {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    z-index: 999;
+    position: relative;
+    background: white;
 }
 
 .lorem p {
@@ -356,6 +397,7 @@ header p {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0 !important;
 }
 
 .lorem2 {
@@ -364,6 +406,8 @@ header p {
     margin-left: auto;
     margin-right: auto;
     background-color: #f3f3f3;
+    z-index: 999;
+    position: relative;
 }
 
 .lorem2 p {
@@ -379,8 +423,10 @@ header p {
 .faq {
     width: 100%;
     display: block;
-    background-color: #f3f3f3;
     padding: 5px;
+    z-index: 999;
+    position: relative;
+    background: #f3f3f3;
 }
 
 .faq h1 {
@@ -451,7 +497,7 @@ header p {
 
 /*Quotes Start*/
 .quote-card {
-    padding: 50px 0 0 0;
+    padding: 50px 0 50px 0;
 }
 
 .quote-card-text {
@@ -474,7 +520,7 @@ header p {
     padding: 0;
     width: 690px;
     text-align: center;
-    animation: text 90s linear infinite;
+    animation: text 85s linear infinite;
     opacity: 0;
     line-height: normal;
     height: auto;
@@ -539,7 +585,7 @@ header p {
 .quote-card-text h1 span {
     position: absolute;
     overflow: hidden;
-    animation: animate 90s linear infinite;
+    animation: animate 85s linear infinite;
     opacity: 0;
     line-height: normal;
     height: auto;
@@ -624,32 +670,111 @@ header p {
     height: 100%;
 }
 
+.quotes-wrapper {
+    padding-bottom: 25px;
+}
+
 .quotes-linkbuttons {
-    width: 15%;
+    position: relative;
+    left: 40%;
+    right: 40%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 50px 0 0 0;
+}
+
+.quotes-linkbuttons p {
+    background-color: #7289DA;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    width: 100%;
+    transition: .4s;
+}
+
+.quotes-linkbuttons p:hover {
+    background-color: #9fafe6;
+    text-decoration: none;
+    color: white;
+}
+
+.quotes-linkbuttons a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.discord-button {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 20%;
+    left: 40%;
+    right: 40%;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
     margin: 50px 150px 50px 0;
+    border-radius: 5px;
+    padding-bottom: 75px;
+}
+
+.discord-button a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.discord-button a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.discord-button p {
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background-color: #7289DA;
+    border-radius: 5px;
+    top: 0;
+    padding: 10px;
+    margin-top: -25px;
+    transition: .4s;
+}
+
+.discord-button p:hover {
+    background-color: #9fafe6;
+}
+
+.discord-button svg {
+    padding: 0;
+    width: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+}
+
+.discord-button img {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    float: left;
+    left: 0;
+    margin-top: -22px;
 }
 
 .quote-button {
-    background-color: rgb(56, 56, 56);
     border: none;
     color: white;
-    padding: 15px 0px;
+    padding: 5px 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-}
-
-.quote-button:hover {
-    text-decoration: none;
-    background-color: rgb(111, 111, 111);
-    color: white;
-    -webkit-transition: .5s;
+    border-radius: 5px;
 }
 
 /*Quotes End*/
