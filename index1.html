@@ -23,20 +23,19 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Eternal Light - FFXIV Free Company</title>
     <script src="https://code.jquery.com/jquery-3.2.1.js">
-        function scrollFunction() {
-            console.log(document.documentElement.scrollTop);
-            if (document.documentElement.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+        function yourfunction() {
+            if (document.getElementById('perspective').scrollTop > 20 || document.getElementById('perspective').scrollTop > 20) {
                 document.getElementById("btn1").style.right = "-55px";
             } else {
                 document.getElementById("btn1").style.right = "50px";
             }
         }
 
-        $(document).ready(function(){
-            $(window).on('scroll',document.body, function(){
-                console.log($(document).scrollTop());
-            });
-        });
+        $(document.getElementById('perspective').scroll(function(){
+            yourfunction();
+        }));
+
     </script>
     <script></script>
 
