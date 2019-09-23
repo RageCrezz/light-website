@@ -10,6 +10,26 @@ html {
     right: -55px;
 }
 
+#btn2 {
+    right: -105px;
+}
+
+#btn3 {
+    right: -155px;
+}
+
+#btn4 {
+    right: -205px;
+}
+
+#btn5 {
+    right: -255px;
+}
+
+.btn1-div p {
+    color: white;
+}
+
 .gotopbtn {
     position: absolute;
     width: 50px;
@@ -448,7 +468,7 @@ nav.sticky p {
 }
 
 .welcome {
-    top: 40%;
+    top: 50%;
     width: 100%;
     position: absolute;
     background-color: rgba(255,255,255,.1);
@@ -470,7 +490,7 @@ header p {
 }
 
 .button {
-    background-color: rgb(56, 56, 56);
+    background-color: #7289DA;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -480,7 +500,7 @@ header p {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    top: 60%;
+    top: 70%;
     width: 20%;
     left: 40%;
     right: 40%;
@@ -489,7 +509,7 @@ header p {
 
 .button:hover {
     text-decoration: none;
-    background-color: rgb(111, 111, 111);
+    background-color: #9fafe6;
     color: white;
     -webkit-transition: .5s;
 }

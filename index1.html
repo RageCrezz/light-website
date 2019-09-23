@@ -22,28 +22,40 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Eternal Light - FFXIV Free Company</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        function showHideButtons(scroll) {
+            // calculate and substract amount here
+            scroll -= 900;
 
-        function yourfunction() {
-            if (document.getElementById('perspective').scrollTop > 20 || document.getElementById('perspective').scrollTop > 20) {
-                document.getElementById("btn1").style.right = "-55px";
-            } else {
+            if (scroll > 20 || scroll > 20) {
                 document.getElementById("btn1").style.right = "50px";
+                document.getElementById("btn2").style.right = "50px";
+                document.getElementById("btn3").style.right = "50px";
+                document.getElementById("btn4").style.right = "50px";
+                document.getElementById("btn5").style.right = "50px";
+            } else {
+                document.getElementById("btn1").style.right = "-55px";
+                document.getElementById("btn2").style.right = "-105px";
+                document.getElementById("btn3").style.right = "-155px";
+                document.getElementById("btn4").style.right = "-205px";
+                document.getElementById("btn5").style.right = "-255px";
             }
         }
 
-        $(document.getElementById('perspective').scroll(function(){
-            yourfunction();
-        }));
-
+        $(document).ready(function () {
+            console.log("ready!");
+            $('#perspective').scroll(function (event) {
+                showHideButtons($('#perspective').scrollTop());
+            });
+        });
     </script>
-    <script></script>
 
 
 </head>
 <body>
 
-    <a class="gotopbtn" href="#top" id="btn1"><i class="fas fa-home"></i></a>
+    <a class="gotopbtn" href="#top" id="btn1" title="Home"><i class="fas fa-home"></i></a>
     <a class="about-us-btn" href="#about" id="btn2"><i class="fas fa-info"></i></a>
     <a class="signup-btn" href="#signup" id="btn3"><i class="fas fa-user-plus"></i></a>
     <a class="faq-btn" href="#faq" id="btn4"><i class="fas fa-question"></i></a>
@@ -53,7 +65,7 @@
 
 <div id="perspective">
 
-    <nav>
+    <nav id="top">
         <div class="both-nav">
             <div class="logo">
                 <img alt="crest-in-header" src="media/Crest.gif">
@@ -74,7 +86,7 @@
         </div>
     </nav>
 
-    <header id="top">
+    <header id="top topheight">
 
 
 
@@ -105,7 +117,7 @@
 
 </header>
 
-<div class="perspective">
+    <div class="perspective">
 
     <div class="content-width">
         <div class="content" id="about">
