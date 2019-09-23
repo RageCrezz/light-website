@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link rel="icon" href="media/Crest.gif">
     <link rel="stylesheet" type="text/css" href="styles/style-cards.css">
+    <link rel="stylesheet" type="text/css" href="styles/events.css">
     <link rel="stylesheet" type="text/css" href="styles/style-responsive.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -21,59 +22,123 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Eternal Light - FFXIV Free Company</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js">
+        function scrollFunction() {
+            console.log(document.documentElement.scrollTop);
+            if (document.documentElement.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("btn1").style.right = "-55px";
+            } else {
+                document.getElementById("btn1").style.right = "50px";
+            }
+        }
+
+        $(document).ready(function(){
+            $(window).on('scroll',document.body, function(){
+                console.log($(document).scrollTop());
+            });
+        });
+    </script>
+    <script></script>
+
+
 </head>
 <body>
-    <header>
+
+    <a class="gotopbtn" href="#top" id="btn1"><i class="fas fa-home"></i></a>
+    <a class="about-us-btn" href="#about" id="btn2"><i class="fas fa-info"></i></a>
+    <a class="signup-btn" href="#signup" id="btn3"><i class="fas fa-user-plus"></i></a>
+    <a class="faq-btn" href="#faq" id="btn4"><i class="fas fa-question"></i></a>
+    <a class="event-btn" href="#events" id="btn5"><i class="fas fa-calendar-times"></i></a>
+
+
+
+<div id="perspective">
 
     <nav>
         <div class="both-nav">
-        <div class="logo">
-            <img alt="crest-in-header" src="media/Crest.gif">
-            <p class="logo-txt">Eternal Light</p>
-        </div>
-        <div class="menu-icon">
-            <i class="fa fa-bars fa-2x"></i>
-        </div>
+            <div class="logo">
+                <img alt="crest-in-header" src="media/Crest.gif">
+                <p class="logo-txt">Eternal Light</p>
+            </div>
+            <div class="menu-icon">
+                <i class="fa fa-bars fa-2x"></i>
+            </div>
         </div>
         <div class="ul-bg">
-        <ul id="opacity">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#about">About us</a></li>
-            <li><a href="#">Apply now!</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#events">FC Events</a></li>
-        </ul>
+            <ul id="opacity">
+                <li><a href="#top" class="active">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#">Apply now!</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#events">FC Events</a></li>
+            </ul>
         </div>
     </nav>
 
-        <div class="welcome">
-            <h1>Welcome to the Eternal Light!</h1>
-            <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
-        </div>
+    <header id="top">
 
-        <a href="#about" class="button">Get to know us!</a>
 
-    </header>
 
-    <div class="parallax-wrapper">
-        <div class="content-parallax1">
-        </div>
+    <div class="welcome">
+        <h1>Welcome to the Eternal Light!</h1>
+        <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
     </div>
 
-    <div class="spacehold">
-        <p></p>
-    </div>
+    <a href="#about" class="button">Get to know us!</a>
+
+    <figure class="slider">
+        <figure>
+            <img src="media/countdown-bg.png">
+        </figure>
+        <figure>
+            <img src="media/bg1.png">
+        </figure>
+        <figure>
+            <img src="media/bg2.png">
+        </figure>
+        <figure>
+            <img src="media/mana.png">
+        </figure>
+        <figure>
+            <img src="media/ito-profile-img.png">
+        </figure>
+    </figure>
+
+</header>
+
+<div class="perspective">
 
     <div class="content-width">
-    <div class="content" id="about">
-        <div class="content-1-inner1 hideme">
-            <h1>Who are we?</h1>
-            <p>The Eternal Light Free Company on Ragnarok (est. 2018) is a close-knitted family, where having fun and going on adventures together is fundamental and key. Due common activities and events, or just chilling together at one place, it never gets boring! If you are searching for a chill FC with a known circle, then this may be the right place for you!</p>
+        <div class="content" id="about">
+            <div class="content-1-inner1 hideme">
+                <h1>Who are we?</h1>
+
+                <p>
+                    The Eternal Light Free Company (est. 2018) is a close-knitted family that enjoys spending time together with our dearest friends. Without mentioning any of below, our members are aware of simple guidelines to ensure a warm and peaceful atmosphere.<br />
+                    Many cultures mix together in our FC, since our members come from all over the globe. Due that, you have to not worry about inactivity, since you will always find somebody online to play together with. <br />
+                    To make sure this family-feeling maintains and won't be hurt by anyone, our members agree to simply follow our FC guidelines:
+
+                </p>
+            </div>
+
+            <div class="content1-guiding">
+                <div class="guidelines">
+                    <img class="guideimg1" src="media/freedomofspeech.png">
+
+                    <p class="guide1"><a style="font-size: 34px; font-weight: 300;">Freedom of Speech</a><br /><br />We put much worth and importance into the opinions of all our members. Being able to speak out clearly and freely is an important guideline for us to maintain a comfortable stay in our FC. If there are any conveniences happening, or issues between a few members, our Officers will always be ready to help out and support everyone.</p><div class="break"></div>
+
+                    <p class="guide2"><a style="font-size: 34px; font-weight: 300;">Respect and Love</a><br /><br />Our FC is like a small melting pot. We have members from different countries, with different beliefs and world view, and different cultures. We love each other for what we are and what we can become, and our support for each other never fades away. May it be misunderstandings or even little fightings, in the end we always remember that we are a family. </p>
+
+                    <img class="guideimg2" src="media/loveandrespect.png"><div class="break"></div>
+                    <img class="guideimg3" src="media/activity.png">
+
+                    <p class="guide3"><a style="font-size: 34px; font-weight: 300;">Activity and Communication</a><br /><br />We all stay in contact and prevent misunderstandings mostly by talking to each other. Being active helps everyone to progress faster, but also enjoy the gameplay together more and more. If there are problems regarding to have no time for gaming anymore, our members can simply tell us. There will be no penalties for not being active, only advantages to enjoy the game more ;)</p><div class="break"></div>
+                </div>
+
+
+            </div>
         </div>
     </div>
-    </div>
-
 
     <div class="contentslider">
         <figure>
@@ -105,6 +170,9 @@
         </figure>
     </div>
 
+    <div class="teamtitle">
+        <h1>The Team</h1>
+    </div>
 
     <div class="card-wrapper hideme">
         <div class="card">
@@ -118,22 +186,19 @@
             <ul class="social-media">
                 <li><a href="https://steamcommunity.com/id/conflickter/" target="_blank"><i class="fab fa-steam-square"></i></a></li>
                 <li><a href="https://www.twitch.tv/conflickter/" target="_blank"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="https://www.youtube.com/channel/UCukhtcMLV9iGG5K8wFNN4hA" target="_blank"><i class="fab fa-youtube-square"></i></a></li>
+                <li><a href="http://na.finalfantasyxiv.com/lodestone/character/19367835" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
             </ul>
         </div>
-        <div class="card">
-            <img src="media/ito.gif" alt="card background" class="card-img">
-            <img src="media/ito-profile-img.gif" alt="profile image" class="profile-img">
+        <div class="card vae-card">
+            <img src="media/vae.gif" alt="card background" class="card-img">
+            <img src="media/vae-profile-img.gif" alt="profile image" class="profile-img">
             <h1>Vaellan Aryllis</h1>
             <p class="job-title">Eternal Light - Officer</p>
             <p class="about">
-                Text insertion here Vae
+                Our approachable and patient Officer, who actually never knows what to say if being asked about himself.
             </p>
             <ul class="social-media">
-                <li><a href="#"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube-square"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href="https://de.finalfantasyxiv.com/lodestone/character/24534022/" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
             </ul>
         </div>
         <div class="card">
@@ -148,6 +213,7 @@
                 <li><a href="https://steamcommunity.com/id/mananabanana/" target="_blank"><i class="fab fa-steam-square"></i></a></li>
                 <li><a href="https://www.twitch.tv/mananaw" target="_blank"><i class="fab fa-twitch"></i></a></li>
                 <li><a href="https://twitter.com/mananawwe" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                <li><a href="http://na.finalfantasyxiv.com/lodestone/character/24458450" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
             </ul>
         </div>
         <div class="card">
@@ -160,6 +226,7 @@
             </p>
             <ul class="social-media">
                 <li><a href="https://www.twitch.tv/nelael" target="_blank"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="https://na.finalfantasyxiv.com/lodestone/character/2491664" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
             </ul>
         </div>
         <div class="card">
@@ -172,56 +239,106 @@
             </p>
             <ul class="social-media">
                 <li><a href="https://www.twitch.tv/reverie_shirokami" target="_blank"><i class="fab fa-twitch"></i></a></li>
+                <li><a href="http://na.finalfantasyxiv.com/lodestone/character/593603" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
             </ul>
         </div>
     </div>
 
-
-    <div class="lorem2">
-        <p class="p2">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
-            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
+    <div class="parallax-wrapper">
+        <div class="content-parallax1">
+        </div>
     </div>
 
-    <div class="lorem">
+    <div class="spacehold">
+        <p></p>
+    </div>
+
+
+    <div class="lorem2 signup" id="signup">
+
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 
             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
+
+    </div>
+
+    <div class="gallery">
+        <div class="container">
+            <div class="box">
+                <img src="media/news/yamafrog.png">
+                <h2>Frogwinter</h2>
+                <p>And here we have a beautiful example of how our Leader is a very dorky player. Beware, he might tackle you with memes.</p>
+            </div>
+            <div class="box">
+                <img src="media/togethercrysta.jpg">
+                <h2>The Crystarium - A nice Screenshot place?</h2>
+                <p>Together with our members, we are trying out a few of the new released maps and search for places, where taking pictures might be an epic scenery!</p>
+            </div>
+            <div class="box">
+                <img src="media/yama-profile-img.gif">
+                <h2>Title GOES HERE</h2>
+                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+            </div>
+            <div class="box">
+                <img src="media/yama-profile-img.gif">
+                <h2>Title GOES HERE</h2>
+                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+            </div>
+            <div class="box">
+                <img src="media/yama-profile-img.gif">
+                <h2>Title GOES HERE</h2>
+                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+            </div>
+            <div class="box">
+                <img src="media/yama-profile-img.gif">
+                <h2>Title GOES HERE</h2>
+                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+            </div>
+            <div class="box">
+                <img src="media/yama-profile-img.gif">
+                <h2>Title GOES HERE</h2>
+                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+            </div>
+            <div class="box">
+                <img src="media/yama-profile-img.gif">
+                <h2>Title GOES HERE</h2>
+                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+            </div>
+
+        </div>
     </div>
 
     <div class="faq" id="faq">
 
         <h1>Frequently Asked Questions</h1>
         <div class="collapsible-margin">
-        <button class="collapsible"><a>Who are we, and where are we to find?</a></button>
-        <div class="contentSpoiler">
-            <p>We are a little cozy family called the Eternal Light. You can find our Mansion at the Mist Ward 3, Plot 12. - Everybody is welcome to visit us and hang up with us together!</p>
-        </div>
-        </div>
-
-        <div class="collapsible-margin">
-        <button class="collapsible"><a>What times are we most active?</a></button>
-        <div class="contentSpoiler">
-            <p>Since our Leader and Officers are located in Europe, many of the FC events will be timed properly to afternoon times around GMT+1. Either way we still got members from all around the globe, so there's nothing to worry about inactivity.</p>
-        </div>
+            <button class="collapsible"><a>Who are we, and where are we to find?</a></button>
+            <div class="contentSpoiler">
+                <p>We are a little cozy family called the Eternal Light. You can find our Mansion at the Mist Ward 3, Plot 12. - Everybody is welcome to visit us and hang up with us together!</p>
+            </div>
         </div>
 
         <div class="collapsible-margin">
-        <button class="collapsible"><a>What events are we holding and how often are you doing activities together?</a></button>
-        <div class="contentSpoiler">
-            <p>Our Officers are working on hosting many events in 2 or 3 weeks period between each event. We actively think about unique activities to play together with our members. Besides the events you can find us enjoying all game content together ingame, and if you feel like it, you can also join us in the voice chat on Discord!</p>
+            <button class="collapsible"><a>What times are we most active?</a></button>
+            <div class="contentSpoiler">
+                <p>Since our Leader and Officers are located in Europe, many of the FC events will be timed properly to afternoon times around GMT+1. Either way we still got members from all around the globe, so there's nothing to worry about inactivity.</p>
+            </div>
         </div>
+
+        <div class="collapsible-margin">
+            <button class="collapsible"><a>What events are we holding and how often are you doing activities together?</a></button>
+            <div class="contentSpoiler">
+                <p>Our Officers are working on hosting many events in 2 or 3 weeks period between each event. We actively think about unique activities to play together with our members. Besides the events you can find us enjoying all game content together ingame, and if you feel like it, you can also join us in the voice chat on Discord!</p>
+            </div>
         </div>
 
         <div class="collapsible-margin">
             <button class="collapsible"><a>In what datacenter is your FC located in?</a></button>
-        <div class="contentSpoiler">
-            <p>The Eternal Light Company is located in the Chaos datacenter - at Ragnarok. Although even people of cross-servers are very welcome to join our conversations and gameplay!</p>
-        </div>
+            <div class="contentSpoiler">
+                <p>The Eternal Light Company is located in the Chaos datacenter - at Ragnarok. Although even people of cross-servers are very welcome to join our conversations and gameplay!</p>
+            </div>
         </div>
 
         <div class="collapsible-margin, last-spoiler">
@@ -265,6 +382,16 @@
 
             Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
             Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse</p>
     </div>
 
@@ -297,14 +424,15 @@
             <p>"Eternal Light is a family where I can feel accepted and cared for."<br> - Croella Regali</p>
             <p>"FC is kind like coming home to my best friends, people you can always just pick up and run with and be your silly self doing it. It's a place that makes me feel welcome and like I can do anything if I just try and work together with my friends."<br> - M'neira Vheli</p>
         </div> -->
-        <div class="quotes-linkbuttons">
-            <a href="https://de.finalfantasyxiv.com/lodestone/freecompany/9237023573225354173/" target="_blank" class="quote-button"><p>Eternal Light FC - Lodestone (Ragnarok)</p></a>
+        <div class="ffxiv-button">
+            <a href="https://de.finalfantasyxiv.com/lodestone/freecompany/9237023573225354173/" target="_blank" class="quote-button"><img src="media/ffxivlogo.png"><p>Eternal Light FC - Lodestone (Ragnarok)</p></a>
         </div>
         <div class="discord-button">
             <a href="https://discord.gg/GK3yMB" target="_blank"><img src="media/discord-logo.svg"><p>Join us on Discord now!</p></a>
         </div>
     </div>
 
+</div>
 
 <footer>
     <div class="footer-upper left-to-right">
@@ -318,7 +446,7 @@
         </div>
         <div class="footer-secondchild">
             <h1>Explore</h1>
-            <a href="#">Home</a>
+            <a href="#top">Home</a>
             <a href="#about">About Us</a>
             <a href="#">Apply Now!</a>
             <a href="#faq">Frequently Asked Questions</a>
@@ -332,8 +460,9 @@
         </div>
         <div class="footer-tos">
             <h1>Legal</h1>
+            <p>About Us</p>
             <p>Terms</p>
-            <p>Privacy</p>
+            <p>Imprint</p>
         </div>
     </div>
 
@@ -343,8 +472,7 @@
 
 
 </footer>
-
-
+</div>
 </body>
 
 </html>

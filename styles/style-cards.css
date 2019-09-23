@@ -9,20 +9,25 @@ a {
     color: #fff;
 }
 
+.teamtitle {
+    background: white;
+    z-index: 9999 !important;
+}
+
 .card-wrapper {
     width: 100%;
     display: flex;
     align-items: center;
     align-content: center;
-    flex-direction: column;
+    list-style: none;
     justify-content: center;
     margin-top: -25px;
     margin-left: 0;
     margin-right: 10%;
-    background: white;
     position: relative;
-    background: white;
+    background: #ffffff;
     z-index: 999;
+    padding-bottom: 100px;
 }
 
 .card {
@@ -75,6 +80,11 @@ a {
     font-style: italic;
     text-align: center;
     color: #333;
+}
+
+.ffxivlogo {
+    width: 25px;
+    height: 25px;
 }
 
 .social-media {

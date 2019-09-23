@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbc067c8-de12-438e-aefb-e00aae247bcd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/styles/events.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index1.html" beforeDir="false" afterPath="$PROJECT_DIR$/index1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/ffxiv_03082019_135000_050.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style-cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style-cards.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,6 +34,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1P3vXWexAKFmC1ngNofb021wd3n" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -89,7 +95,11 @@
       <workItem from="1567086378409" duration="1423000" />
       <workItem from="1567447799101" duration="24000" />
       <workItem from="1569023291224" duration="9909000" />
-      <workItem from="1569075211391" duration="8403000" />
+      <workItem from="1569075211391" duration="26812000" />
+      <workItem from="1569145966388" duration="4036000" />
+      <workItem from="1569153375393" duration="10945000" />
+      <workItem from="1569257100657" duration="2408000" />
+      <workItem from="1569264123784" duration="2402000" />
     </task>
     <servers />
   </component>
