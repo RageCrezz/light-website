@@ -24,11 +24,8 @@
     <title>Eternal Light - FFXIV Free Company</title>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script>
-        function showHideButtons(scroll) {
-            // calculate and substract amount here
-            scroll -= 900;
-
-            if (scroll > 20 || scroll > 20) {
+        function showHideButtons(element) {
+            if (element.offset().top <= 0) {
                 document.getElementById("btn1").style.right = "50px";
                 document.getElementById("btn2").style.right = "50px";
                 document.getElementById("btn3").style.right = "50px";
@@ -46,7 +43,10 @@
         $(document).ready(function () {
             console.log("ready!");
             $('#perspective').scroll(function (event) {
-                showHideButtons($('#perspective').scrollTop());
+
+                // anchor element as parameter:
+                // change #about to whatever anchor is required
+                showHideButtons($('#about'));
             });
         });
     </script>
