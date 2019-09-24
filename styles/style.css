@@ -760,7 +760,7 @@ header p {
     float: right;
     width: 35%;
     height: 400px;
-    background: url("../media/yama-profile-img.png") center;
+    background: url("../media/signup-bg.png") center;
     background-size: cover;
     box-sizing: border-box;
 }
