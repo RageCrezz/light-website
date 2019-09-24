@@ -159,21 +159,71 @@ body {
     color: #fff;
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100% !important;
     width: 100%;
     font-size: 18px !important;
+    background: #777777;
+    z-index: 9999;
 }
 
 #perspective {
     perspective: 1px;
+    -moz-perspective: 1px;
+    -moz-perspective-origin: 1px;
     margin: 0;
     padding: 0;
-    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform: inherit;
     overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
     width: 100%;
     scroll-behavior: smooth;
+}
+
+@-moz-document url-prefix() {
+    #perspective {
+        transform-style: inherit;
+        perspective: 0 !important;
+        margin: 0;
+        padding: 0;
+        -moz-transform-style: preserve-3d;
+        -moz-transition: all ease 1500ms;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transition: all ease 1500ms;
+        position: relative;
+    }
+
+    .parallax-wrapper::before {
+        transform-style: inherit;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .parallax-wrapper2::before {
+        transform-style: inherit;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .parallax-wrapper img {
+        visibility: hidden;
+        height: 0;
+    }
+
+    .parallax-wrapper2 img {
+        visibility: hidden;
+        height: 0;
+    }
+
+    .spacehold {
+        visibility: hidden;
+        height: 0 !important;
+    }
 }
 
 body p::selection, a::selection, h1::selection, img::selection {
@@ -654,6 +704,124 @@ header p {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0;
+}
+
+.background-signup {
+    width: 100vw;
+    background-color: #f3f3f3;
+    position: relative;
+    z-index: 1000 !important;
+}
+
+.signup {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f3f3f3;
+    z-index: 999;
+    position: relative;
+    padding: 100px 50px 75px 50px;
+}
+
+.signup p {
+    width: 80%;
+    padding: 0 50px 50px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+.signup h1 {
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 100;
+    font-size: 50px;
+    padding: 25px 0 0 0;
+}
+
+.signup-lefttxt {
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.container-signup {
+    width: 100%;
+    height: 400px;
+    background: #fff;
+    margin: 0 auto 0 25px;
+    border: 2px solid #f3f3f3;
+    box-shadow: 0 5px 20px rgba(0,0,0,.2);
+}
+
+.container-signup .right-signup {
+    float: right;
+    width: 35%;
+    height: 400px;
+    background: url("../media/yama-profile-img.png") center;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.container-signup .left-signup {
+    float: left;
+    width: 65%;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+.container .right-signup {
+}
+
+.formBox {
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    height: 400px;
+    background: #fff;
+}
+
+.formBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #777;
+}
+
+.formBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.formBox input[type="text"],
+.formBox input[type="Password"] {
+    border: none;
+    border-bottom: 2px solid #777;
+    outline: none;
+    height: 40px;
+    transition: .4s;
+}
+
+.formBox input[type="text"]:focus,
+.formBox input[type="Password"]:focus {
+    border-bottom: 4px solid #adadad;
+}
+
+.formBox input[type="submit"] {
+    margin-top: 25px;
+    border: none;
+    outline: none;
+    height: 40px;
+    color: white;
+    background: #7289DA;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.formBox input[type="submit"]:hover {
+    background: #9fafe6;
 }
 
 .faq {
