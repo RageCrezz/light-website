@@ -686,6 +686,16 @@ header p {
     margin-bottom: 0 !important;
 }
 
+.upcoming-events {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
+    position: relative;
+    background-color: white;
+}
+
 .lorem2 {
     width: 100%;
     display: block;
@@ -713,6 +723,104 @@ header p {
     z-index: 1000 !important;
 }
 
+.background-events {
+    width: 100vw;
+    background-color: white;
+    position: relative;
+    z-index: 1000 !important;
+}
+
+.upcoming-events {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    z-index: 999;
+    position: relative;
+    padding: 100px 50px 75px 50px;
+}
+
+.upcoming-events p {
+    padding: 0 50px 50px 0;
+    display: block;
+    margin-left: 5%;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.upcoming-events h1 {
+    margin: 0 0 0 5%;
+    font-weight: 100;
+    font-size: 50px;
+    padding: 25px 0 0 0;
+}
+
+.upcoming-lefttxt {
+    margin: 0 auto;
+    width: 40%;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.events-right {
+    margin: 0 5%;
+    width: 50%;
+    position: relative;
+    height: 100%;
+    float: right;
+    box-sizing: border-box;
+}
+
+.events-right ul {
+    position: relative;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.events-right ul li {
+    list-style: none;
+    background: #fff;
+    box-sizing: border-box;
+    height: 200px;
+    margin: 15px 0;
+}
+
+.events-right ul li .date {
+    position: relative;
+    padding: 20px;
+    background: #777;
+    box-sizing: border-box;
+    width: 30%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    transition: .5s;
+}
+
+.events-right ul li .date h2 {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 60px;
+}
+
+.events-right ul li .date h2 span {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.events-right ul li .details {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+}
+
 .signup {
     width: 70%;
     display: flex;
@@ -729,14 +837,11 @@ header p {
     width: 80%;
     padding: 0 50px 50px 0;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 0;
 }
 
 .signup h1 {
     width: 80%;
-    margin: 0 auto;
     font-weight: 100;
     font-size: 50px;
     padding: 25px 0 0 0;
@@ -748,7 +853,7 @@ header p {
 }
 
 .container-signup {
-    width: 100%;
+    width: 2500px;
     height: 400px;
     background: #fff;
     margin: 0 auto 0 25px;
