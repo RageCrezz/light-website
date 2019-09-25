@@ -644,7 +644,7 @@ header p {
     justify-content: center;
     text-align: center;
     background: white;
-    z-index: 9999 !important;
+    z-index: 998 !important;
 }
 
 .teamtitle h1 {
