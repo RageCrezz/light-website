@@ -48,6 +48,31 @@
                 // change #about to whatever anchor is required
                 showHideButtons($('#about'));
             });
+
+            // load events
+        // <div class="date">
+        //             <h2>24<br><span>June</span></h2>
+        //     </div>
+        //     <div class="details">
+        //             <h3>Some Title shit for event</h3>
+        //                                     <p>Details for the event will sometime be added here and I don't fricking know what else to place here as a placeholder LMAO</p>
+        //     </div>
+
+
+            $.getJSON('/api/events/get/3', function(events) {
+                for (let i in events) {
+
+                    var day = "4";
+                    var month = "April";
+
+
+                    $('#event-content').append('<div class="date"><h2>'+day+'<br><span>'+month+'</span></h2></div><div class="details"><h3>'+events[i].Name+'</h3><p>'+events[i].Description+'</p></div>');
+                }
+            });
+
+
+
+
         });
     </script>
 
@@ -418,28 +443,7 @@
 
                 <div class="events-right">
                     <ul>
-                        <li>
-                            <div class="date">
-                                <h2>24<br><span>June</span></h2>
-                            </div>
-                            <div class="details">
-                                <h3>Some Title shit for event</h3>
-                                <p>Details for the event will sometime be added here and I don't fricking know what else to place here as a placeholder LMAO</p>
-                            </div>
-                            <div class="date">
-                                <h2>25<br><span>June</span></h2>
-                            </div>
-                            <div class="details">
-                                <h3>Some Title shit for event 2</h3>
-                                <p>Details for the event will sometime be added here and I don't fricking know what else to place here as a placeholder LMAO</p>
-                            </div>
-                            <div class="date">
-                                <h2>26<br><span>June</span></h2>
-                            </div>
-                            <div class="details">
-                                <h3>Some Title shit for event 3</h3>
-                                <p>Details for the event will sometime be added here and I don't fricking know what else to place here as a placeholder LMAO</p>
-                            </div>
+                        <li id="event-content">
                         </li>
                     </ul>
                 </div>
