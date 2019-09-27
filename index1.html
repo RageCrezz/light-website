@@ -15,77 +15,101 @@
 
     <meta property="og:title" content="Eternal Light - FFXIV Free Company"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="http://eternal-light.eu" />
+    <meta property="og:url" content="http://eternal-light.eu"/>
     <meta property="og:image" content="http://eternal-light.eu/media/Crest.png"/>
-    <meta property="og:description" content="Welcome to the official Website of the Eternal Light Free Company! Here you can find out about us and eventually find your place in our Free Company."/>
+    <meta property="og:description"
+          content="Welcome to the official Website of the Eternal Light Free Company! Here you can find out about us and eventually find your place in our Free Company."/>
     <meta name="theme-color" content="#ad342b"/>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <title>Eternal Light - FFXIV Free Company</title>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script>
-        function showHideButtons(element) {
-            if (element.offset().top <= 0) {
-                document.getElementById("btn1").style.right = "50px";
-                document.getElementById("btn2").style.right = "50px";
-                document.getElementById("btn3").style.right = "50px";
-                document.getElementById("btn4").style.right = "50px";
-                document.getElementById("btn5").style.right = "50px";
-            } else {
-                document.getElementById("btn1").style.right = "-55px";
-                document.getElementById("btn2").style.right = "-105px";
-                document.getElementById("btn3").style.right = "-155px";
-                document.getElementById("btn4").style.right = "-205px";
-                document.getElementById("btn5").style.right = "-255px";
-            }
-        }
 
         $(document).ready(function () {
-            console.log("ready!");
+
+            // Button while scrolling
             $('#perspective').scroll(function (event) {
-
-                // anchor element as parameter:
-                // change #about to whatever anchor is required
-                showHideButtons($('#about'));
-            });
-
-            // load events
-        // <div class="date">
-        //             <h2>24<br><span>June</span></h2>
-        //     </div>
-        //     <div class="details">
-        //             <h3>Some Title shit for event</h3>
-        //                                     <p>Details for the event will sometime be added here and I don't fricking know what else to place here as a placeholder LMAO</p>
-        //     </div>
-
-
-            $.getJSON('/api/events/get/3', function(events) {
-                for (let i in events) {
-
-                    var day = "4";
-                    var month = "April";
-
-
-                    $('#event-content').append('<div class="date"><h2>'+day+'<br><span>'+month+'</span></h2></div><div class="details"><h3>'+events[i].Name+'</h3><p>'+events[i].Description+'</p></div>');
+                if ($('#about').offset().top <= 0) {
+                    document.getElementById("btn1").style.right = "50px";
+                    document.getElementById("btn2").style.right = "50px";
+                    document.getElementById("btn3").style.right = "50px";
+                    document.getElementById("btn4").style.right = "50px";
+                    document.getElementById("btn5").style.right = "50px";
+                } else {
+                    document.getElementById("btn1").style.right = "-55px";
+                    document.getElementById("btn2").style.right = "-105px";
+                    document.getElementById("btn3").style.right = "-155px";
+                    document.getElementById("btn4").style.right = "-205px";
+                    document.getElementById("btn5").style.right = "-255px";
                 }
             });
 
+            // Events
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"
+            ];
+            $.getJSON('/api/events/get/3', function (events) {
+                for (let i in events) {
+                    var start = new Date(events[i].Start);
+                    $('#event-content').append('<div class="date"><h2>' + start.getDate() + '<br><span>' + monthNames[start.getMonth()] + '</span></h2></div><div class="details"><h3>' + events[i].Name + '</h3><p>' + events[i].Description + '</p></div>');
+                }
+            });
 
+            // Member Applications
+            $('#memberApplicationSubmit').bind("click", function () {
+                $.getJSON('/api/captcha/generate', function (captchaID) {
 
+                    var memberApplicationData = {};
+                    memberApplicationData.FFXIVUser = $('#memberApplicationFFName').val();
+                    memberApplicationData.DiscordUser = $('#memberApplicationDCName').val();
+                    memberApplicationData.LodestoneLink = $('#memberApplicationProfile').val();
 
+                    var memberApplication = $('#memberApplication');
+                    memberApplication.empty();
+                    memberApplication.append('<p>Please solve the following captcha:</p>');
+                    memberApplication.append('<img src="/api/captcha/download/' + captchaID + '" />');
+                    memberApplication.append('<input id="memberApplicationCaptcha" type="text" name="" placeholder="">');
+
+                    var submitMemberApplication = $('<button/>', {
+                        text: "Apply",
+                        type: "button",
+                        click: function () {
+                            memberApplicationData.ID = captchaID;
+                            memberApplicationData.Digits = $('#memberApplicationCaptcha').val();
+
+                            $.ajax({
+                                url: '/api/member/apply',
+                                dataType: 'json',
+                                type: 'post',
+                                contentType: 'application/json',
+                                data: JSON.stringify(memberApplicationData),
+                                processData: false,
+                                success: function () {
+                                    memberApplication.empty();
+                                    memberApplication.append('<p>Your Application was send to our Discord Server \\o/</p>');
+                                },
+                                error: function (data) {
+                                    memberApplication.empty();
+                                    memberApplication.append('<p>Error: ' + data.responseJSON + '</p>');
+                                }
+                            });
+                        }
+                    });
+
+                    memberApplication.append(submitMemberApplication);
+                });
+            });
         });
     </script>
-
-
 </head>
 <body>
 
-    <a class="gotopbtn" href="#top" id="btn1" title="Home"><i class="fas fa-home"></i></a>
-    <a class="about-us-btn" href="#about" id="btn2"><i class="fas fa-info"></i></a>
-    <a class="signup-btn" href="#signup" id="btn3"><i class="fas fa-user-plus"></i></a>
-    <a class="faq-btn" href="#faq" id="btn4"><i class="fas fa-question"></i></a>
-    <a class="event-btn" href="#events" id="btn5"><i class="fas fa-calendar-times"></i></a>
-
+<a class="gotopbtn" href="#top" id="btn1" title="Home"><i class="fas fa-home"></i></a>
+<a class="about-us-btn" href="#about" id="btn2"><i class="fas fa-info"></i></a>
+<a class="signup-btn" href="#signup" id="btn3"><i class="fas fa-user-plus"></i></a>
+<a class="faq-btn" href="#faq" id="btn4"><i class="fas fa-question"></i></a>
+<a class="event-btn" href="#events" id="btn5"><i class="fas fa-calendar-times"></i></a>
 
 
 <div id="perspective">
@@ -114,331 +138,385 @@
     <header id="top topheight">
 
 
+        <div class="welcome">
+            <h1>Welcome to the Eternal Light!</h1>
+            <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
+        </div>
 
-    <div class="welcome">
-        <h1>Welcome to the Eternal Light!</h1>
-        <p>< Meet our close-knit family - join us on our exhilarating adventure. ></p>
-    </div>
+        <a href="#about" class="button">Get to know us!</a>
 
-    <a href="#about" class="button">Get to know us!</a>
+        <figure class="slider">
+            <figure>
+                <img src="media/countdown-bg.png">
+            </figure>
+            <figure>
+                <img src="media/bg1.png">
+            </figure>
+            <figure>
+                <img src="media/bg2.png">
+            </figure>
+            <figure>
+                <img src="media/mana.png">
+            </figure>
+            <figure>
+                <img src="media/ito-profile-img.png">
+            </figure>
+        </figure>
 
-    <figure class="slider">
-        <figure>
-            <img src="media/countdown-bg.png">
-        </figure>
-        <figure>
-            <img src="media/bg1.png">
-        </figure>
-        <figure>
-            <img src="media/bg2.png">
-        </figure>
-        <figure>
-            <img src="media/mana.png">
-        </figure>
-        <figure>
-            <img src="media/ito-profile-img.png">
-        </figure>
-    </figure>
-
-</header>
+    </header>
 
     <div class="perspective">
 
-    <div class="content-width">
-        <div class="content" id="about">
-            <div class="content-1-inner1 hideme">
-                <h1>Who are we?</h1>
+        <div class="content-width">
+            <div class="content" id="about">
+                <div class="content-1-inner1 hideme">
+                    <h1>Who are we?</h1>
 
-                <p>
-                    The Eternal Light Free Company (est. 2018) is a close-knitted family that enjoys spending time together with our dearest friends. Without mentioning any of below, our members are aware of simple guidelines to ensure a warm and peaceful atmosphere.<br />
-                    Many cultures mix together in our FC, since our members come from all over the globe. Due that, you have to not worry about inactivity, since you will always find somebody online to play together with. <br />
-                    To make sure this family-feeling maintains and won't be hurt by anyone, our members agree to simply follow our FC guidelines:
+                    <p>
+                        The Eternal Light Free Company (est. 2018) is a close-knitted family that enjoys spending time
+                        together with our dearest friends. Without mentioning any of below, our members are aware of
+                        simple guidelines to ensure a warm and peaceful atmosphere.<br/>
+                        Many cultures mix together in our FC, since our members come from all over the globe. Due that,
+                        you have to not worry about inactivity, since you will always find somebody online to play
+                        together with. <br/>
+                        To make sure this family-feeling maintains and won't be hurt by anyone, our members agree to
+                        simply follow our FC guidelines:
 
-                </p>
-            </div>
-
-            <div class="content1-guiding">
-                <div class="guidelines">
-                    <img class="guideimg1" src="media/freedomofspeech.png">
-
-                    <p class="guide1"><a style="font-size: 34px; font-weight: 300;">Freedom of Speech</a><br /><br />We put much worth and importance into the opinions of all our members. Being able to speak out clearly and freely is an important guideline for us to maintain a comfortable stay in our FC. If there are any conveniences happening, or issues between a few members, our Officers will always be ready to help out and support everyone.</p><div class="break"></div>
-
-                    <p class="guide2"><a style="font-size: 34px; font-weight: 300;">Respect and Love</a><br /><br />Our FC is like a small melting pot. We have members from different countries, with different beliefs and world view, and different cultures. We love each other for what we are and what we can become, and our support for each other never fades away. May it be misunderstandings or even little fightings, in the end we always remember that we are a family. </p>
-
-                    <img class="guideimg2" src="media/loveandrespect.png"><div class="break"></div>
-                    <img class="guideimg3" src="media/activity.png">
-
-                    <p class="guide3"><a style="font-size: 34px; font-weight: 300;">Activity and Communication</a><br /><br />We all stay in contact and prevent misunderstandings mostly by talking to each other. Being active helps everyone to progress faster, but also enjoy the gameplay together more and more. If there are problems regarding to have no time for gaming anymore, our members can simply tell us. There will be no penalties for not being active, only advantages to enjoy the game more ;)</p><div class="break"></div>
+                    </p>
                 </div>
 
+                <div class="content1-guiding">
+                    <div class="guidelines">
+                        <img class="guideimg1" src="media/freedomofspeech.png">
 
+                        <p class="guide1"><a style="font-size: 34px; font-weight: 300;">Freedom of Speech</a><br/><br/>We
+                            put much worth and importance into the opinions of all our members. Being able to speak out
+                            clearly and freely is an important guideline for us to maintain a comfortable stay in our
+                            FC. If there are any conveniences happening, or issues between a few members, our Officers
+                            will always be ready to help out and support everyone.</p>
+                        <div class="break"></div>
+
+                        <p class="guide2"><a style="font-size: 34px; font-weight: 300;">Respect and Love</a><br/><br/>Our
+                            FC is like a small melting pot. We have members from different countries, with different
+                            beliefs and world view, and different cultures. We love each other for what we are and what
+                            we can become, and our support for each other never fades away. May it be misunderstandings
+                            or even little fightings, in the end we always remember that we are a family. </p>
+
+                        <img class="guideimg2" src="media/loveandrespect.png">
+                        <div class="break"></div>
+                        <img class="guideimg3" src="media/activity.png">
+
+                        <p class="guide3"><a style="font-size: 34px; font-weight: 300;">Activity and
+                            Communication</a><br/><br/>We all stay in contact and prevent misunderstandings mostly by
+                            talking to each other. Being active helps everyone to progress faster, but also enjoy the
+                            gameplay together more and more. If there are problems regarding to have no time for gaming
+                            anymore, our members can simply tell us. There will be no penalties for not being active,
+                            only advantages to enjoy the game more ;)</p>
+                        <div class="break"></div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="contentslider">
-        <figure>
-            <div class="slide">
+        <div class="contentslider">
+            <figure>
+                <div class="slide">
+                    <h1>Yama Azumi</h1>
+                    <p class="job">Eternal Light - Leader</p>
+                    <img alt="banner-mobile" class="background-slider" src="media/yama-banner.gif"/>
+                </div>
+                <div class="slide">
+                    <h1>Vaellan Aryllis</h1>
+                    <p class="job">Eternal Light - Officer</p>
+                    <img alt="banner-mobile" class="background-slider" src="media/vae-banner.png"/>
+                </div>
+                <div class="slide">
+                    <h1>Mana Kurogane</h1>
+                    <p class="job">Eternal Light - Officer</p>
+                    <img alt="banner-mobile" class="background-slider" src="media/mana-banner.gif"/>
+                </div>
+                <div class="slide">
+                    <h1>Caelin Saeria</h1>
+                    <p class="job">Eternal Light - Officer</p>
+                    <img alt="banner-mobile" class="background-slider" src="media/cae-banner.gif"/>
+                </div>
+                <div class="slide">
+                    <h1>Reverie Shirokami</h1>
+                    <p class="job">Eternal Light - Officer</p>
+                    <img alt="banner-mobile" class="background-slider" src="media/rev-banner.gif"/>
+                </div>
+            </figure>
+        </div>
+
+        <div class="teamtitle">
+            <h1>The Team</h1>
+        </div>
+
+        <div class="card-wrapper hideme">
+            <div class="card">
+                <img src="media/yama.gif" alt="card background" class="card-img">
+                <img src="media/yama-profile-img.gif" alt="profile image" class="profile-img">
                 <h1>Yama Azumi</h1>
-                <p class="job">Eternal Light - Leader</p>
-                <img alt="banner-mobile" class="background-slider" src="media/yama-banner.gif"/>
+                <p class="job-title">Eternal Light - Leader</p>
+                <p class="about">
+                    The Leader of the Eternal Light Free Company. Administrating basically everything. Memeful Delight
+                    and a very yummy snack.
+                </p>
+                <ul class="social-media">
+                    <li><a href="https://steamcommunity.com/id/conflickter/" target="_blank"><i
+                            class="fab fa-steam-square"></i></a></li>
+                    <li><a href="https://www.twitch.tv/conflickter/" target="_blank"><i class="fab fa-twitch"></i></a>
+                    </li>
+                    <li><a href="http://na.finalfantasyxiv.com/lodestone/character/19367835" target="_blank"><img
+                            class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
+                </ul>
             </div>
-            <div class="slide">
+            <div class="card vae-card">
+                <img src="media/vae.gif" alt="card background" class="card-img">
+                <img src="media/vae-profile-img.gif" alt="profile image" class="profile-img">
                 <h1>Vaellan Aryllis</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img alt="banner-mobile" class="background-slider" src="media/vae-banner.png"/>
+                <p class="job-title">Eternal Light - Officer</p>
+                <p class="about">
+                    Our approachable and patient Officer, who actually never knows what to say if being asked about
+                    himself.
+                </p>
+                <ul class="social-media">
+                    <li><a href="https://de.finalfantasyxiv.com/lodestone/character/24534022/" target="_blank"><img
+                            class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
+                </ul>
             </div>
-            <div class="slide">
+            <div class="card">
+                <img src="media/mana.gif" alt="card background" class="card-img">
+                <img src="media/mana-profile-img.gif" alt="profile image" class="profile-img">
                 <h1>Mana Kurogane</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img alt="banner-mobile" class="background-slider" src="media/mana-banner.gif"/>
+                <p class="job-title">Eternal Light - Officer</p>
+                <p class="about">
+                    The Free Company's glorious Teddybear. Motivated to organize event- and fun-based content for our
+                    members.
+                </p>
+                <ul class="social-media">
+                    <li><a href="https://steamcommunity.com/id/mananabanana/" target="_blank"><i
+                            class="fab fa-steam-square"></i></a></li>
+                    <li><a href="https://www.twitch.tv/mananaw" target="_blank"><i class="fab fa-twitch"></i></a></li>
+                    <li><a href="https://twitter.com/mananawwe" target="_blank"><i
+                            class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="http://na.finalfantasyxiv.com/lodestone/character/24458450" target="_blank"><img
+                            class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
+                </ul>
             </div>
-            <div class="slide">
+            <div class="card">
+                <img src="media/cae.gif" alt="card background" class="card-img">
+                <img src="media/cae-profile-img.gif" alt="profile image" class="profile-img">
                 <h1>Caelin Saeria</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img alt="banner-mobile" class="background-slider" src="media/cae-banner.gif"/>
+                <p class="job-title">Eternal Light - Officer</p>
+                <p class="about">
+                    Our very strategic and intelligent Officer. Working on the management of the member-list and keeping
+                    an eye on behaviour.
+                </p>
+                <ul class="social-media">
+                    <li><a href="https://www.twitch.tv/nelael" target="_blank"><i class="fab fa-twitch"></i></a></li>
+                    <li><a href="https://na.finalfantasyxiv.com/lodestone/character/2491664" target="_blank"><img
+                            class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
+                </ul>
             </div>
-            <div class="slide">
+            <div class="card">
+                <img src="media/rev.gif" alt="card background" class="card-img">
+                <img src="media/rev-profile-img.gif" alt="profile image" class="profile-img">
                 <h1>Reverie Shirokami</h1>
-                <p class="job">Eternal Light - Officer</p>
-                <img alt="banner-mobile" class="background-slider" src="media/rev-banner.gif"/>
+                <p class="job-title">Eternal Light - Officer</p>
+                <p class="about">
+                    Our Free Company's very kind Officer, who keeps an eye on good behaviour and comes up with great
+                    ideas of setting content.
+                </p>
+                <ul class="social-media">
+                    <li><a href="https://www.twitch.tv/reverie_shirokami" target="_blank"><i class="fab fa-twitch"></i></a>
+                    </li>
+                    <li><a href="http://na.finalfantasyxiv.com/lodestone/character/593603" target="_blank"><img
+                            class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
+                </ul>
             </div>
-        </figure>
-    </div>
-
-    <div class="teamtitle">
-        <h1>The Team</h1>
-    </div>
-
-    <div class="card-wrapper hideme">
-        <div class="card">
-            <img src="media/yama.gif" alt="card background" class="card-img">
-            <img src="media/yama-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Yama Azumi</h1>
-            <p class="job-title">Eternal Light - Leader</p>
-            <p class="about">
-                The Leader of the Eternal Light Free Company. Administrating basically everything. Memeful Delight and a very yummy snack.
-            </p>
-            <ul class="social-media">
-                <li><a href="https://steamcommunity.com/id/conflickter/" target="_blank"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="https://www.twitch.tv/conflickter/" target="_blank"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="http://na.finalfantasyxiv.com/lodestone/character/19367835" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
-            </ul>
         </div>
-        <div class="card vae-card">
-            <img src="media/vae.gif" alt="card background" class="card-img">
-            <img src="media/vae-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Vaellan Aryllis</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                Our approachable and patient Officer, who actually never knows what to say if being asked about himself.
-            </p>
-            <ul class="social-media">
-                <li><a href="https://de.finalfantasyxiv.com/lodestone/character/24534022/" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/mana.gif" alt="card background" class="card-img">
-            <img src="media/mana-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Mana Kurogane</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                The Free Company's glorious Teddybear. Motivated to organize event- and fun-based content for our members.
-            </p>
-            <ul class="social-media">
-                <li><a href="https://steamcommunity.com/id/mananabanana/" target="_blank"><i class="fab fa-steam-square"></i></a></li>
-                <li><a href="https://www.twitch.tv/mananaw" target="_blank"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="https://twitter.com/mananawwe" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
-                <li><a href="http://na.finalfantasyxiv.com/lodestone/character/24458450" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/cae.gif" alt="card background" class="card-img">
-            <img src="media/cae-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Caelin Saeria</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                Our very strategic and intelligent Officer. Working on the management of the member-list and keeping an eye on behaviour.
-            </p>
-            <ul class="social-media">
-                <li><a href="https://www.twitch.tv/nelael" target="_blank"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="https://na.finalfantasyxiv.com/lodestone/character/2491664" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
-            </ul>
-        </div>
-        <div class="card">
-            <img src="media/rev.gif" alt="card background" class="card-img">
-            <img src="media/rev-profile-img.gif" alt="profile image" class="profile-img">
-            <h1>Reverie Shirokami</h1>
-            <p class="job-title">Eternal Light - Officer</p>
-            <p class="about">
-                Our Free Company's very kind Officer, who keeps an eye on good behaviour and comes up with great ideas of setting content.
-            </p>
-            <ul class="social-media">
-                <li><a href="https://www.twitch.tv/reverie_shirokami" target="_blank"><i class="fab fa-twitch"></i></a></li>
-                <li><a href="http://na.finalfantasyxiv.com/lodestone/character/593603" target="_blank"><img class="ffxivlogo" src="media/ffxivlogo-red.png"></a></li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="parallax-wrapper">
-        <div class="content-parallax1">
-        </div>
-    </div>
-
-    <div class="spacehold">
-        <p></p>
-    </div>
-
-    <div class="background-signup">
-        <div class="signup" id="signup">
-
-            <div class="signup-lefttxt">
-                <h1>Be a part of us!</h1><br />
-                <p>If you liked our Free Company and think about joining us, you can easily fill out the form here and submit your data. One of our officers will be contacting you as soon as possible. We hope that you will enjoy your stay in our Free Company and we welcome you with open arms!</p>
+        <div class="parallax-wrapper">
+            <div class="content-parallax1">
             </div>
+        </div>
 
-            <div class="container-signup">
-                <div class="left-signup">
-                    <div class="formBox">
-                        <form>
-                            <p>Username</p>
-                            <input type="text" name="" placeholder="FFXIV First- and Surname">
-                            <p>Discord-Username</p>
-                            <input type="text" name="" placeholder="Discord#Number">
-                            <p>Lodestone Profile Link</p>
-                            <input type="text" name="" placeholder="">
-                            <input type="submit" name="" value="Apply!">
+        <div class="spacehold">
+            <p></p>
+        </div>
 
-                        </form>
+        <div class="background-signup">
+            <div class="signup" id="signup">
+
+                <div class="signup-lefttxt">
+                    <h1>Be a part of us!</h1><br/>
+                    <p>If you liked our Free Company and think about joining us, you can easily fill out the form here
+                        and submit your data. One of our officers will be contacting you as soon as possible. We hope
+                        that you will enjoy your stay in our Free Company and we welcome you with open arms!</p>
+                </div>
+
+                <div class="container-signup">
+                    <div class="left-signup">
+                        <div class="formBox">
+                            <form id="memberApplication">
+                                <p>Username</p>
+                                <input id="memberApplicationFFName" type="text" name=""
+                                       placeholder="FFXIV First- and Surname">
+                                <p>Discord-Username</p>
+                                <input id="memberApplicationDCName" type="text" name="" placeholder="Discord#Number">
+                                <p>Lodestone Profile Link</p>
+                                <input id="memberApplicationProfile" type="text" name="" placeholder="">
+                                <button id="memberApplicationSubmit" type='button'>Apply</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="right-signup">
                     </div>
                 </div>
-                <div class="right-signup">
+
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="container">
+                <div class="box">
+                    <img src="media/news/yamafrog.png">
+                    <h2>Frogwinter</h2>
+                    <p>And here we have a beautiful example of how our Leader is a very dorky player. Beware, he might
+                        tackle you with memes.</p>
+                </div>
+                <div class="box">
+                    <img src="media/togethercrysta.jpg">
+                    <h2>The Crystarium - A nice Screenshot place?</h2>
+                    <p>Together with our members, we are trying out a few of the new released maps and search for
+                        places, where taking pictures might be an epic scenery!</p>
+                </div>
+                <div class="box">
+                    <img src="media/yama-profile-img.gif">
+                    <h2>Title GOES HERE</h2>
+                    <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+                </div>
+                <div class="box">
+                    <img src="media/yama-profile-img.gif">
+                    <h2>Title GOES HERE</h2>
+                    <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+                </div>
+                <div class="box">
+                    <img src="media/yama-profile-img.gif">
+                    <h2>Title GOES HERE</h2>
+                    <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+                </div>
+                <div class="box">
+                    <img src="media/yama-profile-img.gif">
+                    <h2>Title GOES HERE</h2>
+                    <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+                </div>
+                <div class="box">
+                    <img src="media/yama-profile-img.gif">
+                    <h2>Title GOES HERE</h2>
+                    <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+                </div>
+                <div class="box">
+                    <img src="media/yama-profile-img.gif">
+                    <h2>Title GOES HERE</h2>
+                    <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="faq" id="faq">
+
+            <h1>Frequently Asked Questions</h1>
+            <div class="collapsible-margin">
+                <button class="collapsible"><a>Who are we, and where are we to find?</a></button>
+                <div class="contentSpoiler">
+                    <p>We are a little cozy family called the Eternal Light. You can find our Mansion at the Mist Ward
+                        3, Plot 12. - Everybody is welcome to visit us and hang up with us together!</p>
+                </div>
+            </div>
+
+            <div class="collapsible-margin">
+                <button class="collapsible"><a>What times are we most active?</a></button>
+                <div class="contentSpoiler">
+                    <p>Since our Leader and Officers are located in Europe, many of the FC events will be timed properly
+                        to afternoon times around GMT+1. Either way we still got members from all around the globe, so
+                        there's nothing to worry about inactivity.</p>
+                </div>
+            </div>
+
+            <div class="collapsible-margin">
+                <button class="collapsible"><a>What events are we holding and how often are you doing activities
+                    together?</a></button>
+                <div class="contentSpoiler">
+                    <p>Our Officers are working on hosting many events in 2 or 3 weeks period between each event. We
+                        actively think about unique activities to play together with our members. Besides the events you
+                        can find us enjoying all game content together ingame, and if you feel like it, you can also
+                        join us in the voice chat on Discord!</p>
+                </div>
+            </div>
+
+            <div class="collapsible-margin">
+                <button class="collapsible"><a>In what datacenter is your FC located in?</a></button>
+                <div class="contentSpoiler">
+                    <p>The Eternal Light Company is located in the Chaos datacenter - at Ragnarok. Although even people
+                        of cross-servers are very welcome to join our conversations and gameplay!</p>
+                </div>
+            </div>
+
+            <div class="collapsible-margin, last-spoiler">
+                <button class="collapsible"><a>Is your FC looking for an internal static? Are you hardcore raiders?</a>
+                </button>
+                <div class="contentSpoiler">
+                    <p>Our FC has one static actively raiding the current Edens Gate savage raids. Their goal is to get
+                        BiS in a short time. - We are ready to create an additional static if our members wish for it.
+                        This doesn't make us a hardcore or semi-hardcore FC. We've got hardcore raiders, semi hardcore
+                        raiders but also many casual players, so any kind of gameplay is possible!</p>
                 </div>
             </div>
 
         </div>
-    </div>
 
-    <div class="gallery">
-        <div class="container">
-            <div class="box">
-                <img src="media/news/yamafrog.png">
-                <h2>Frogwinter</h2>
-                <p>And here we have a beautiful example of how our Leader is a very dorky player. Beware, he might tackle you with memes.</p>
-            </div>
-            <div class="box">
-                <img src="media/togethercrysta.jpg">
-                <h2>The Crystarium - A nice Screenshot place?</h2>
-                <p>Together with our members, we are trying out a few of the new released maps and search for places, where taking pictures might be an epic scenery!</p>
-            </div>
-            <div class="box">
-                <img src="media/yama-profile-img.gif">
-                <h2>Title GOES HERE</h2>
-                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
-            </div>
-            <div class="box">
-                <img src="media/yama-profile-img.gif">
-                <h2>Title GOES HERE</h2>
-                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
-            </div>
-            <div class="box">
-                <img src="media/yama-profile-img.gif">
-                <h2>Title GOES HERE</h2>
-                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
-            </div>
-            <div class="box">
-                <img src="media/yama-profile-img.gif">
-                <h2>Title GOES HERE</h2>
-                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
-            </div>
-            <div class="box">
-                <img src="media/yama-profile-img.gif">
-                <h2>Title GOES HERE</h2>
-                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
-            </div>
-            <div class="box">
-                <img src="media/yama-profile-img.gif">
-                <h2>Title GOES HERE</h2>
-                <p>Lorem Ipsum shit and I don't know what else to write here, because I am a hoeeee.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="faq" id="faq">
-
-        <h1>Frequently Asked Questions</h1>
-        <div class="collapsible-margin">
-            <button class="collapsible"><a>Who are we, and where are we to find?</a></button>
-            <div class="contentSpoiler">
-                <p>We are a little cozy family called the Eternal Light. You can find our Mansion at the Mist Ward 3, Plot 12. - Everybody is welcome to visit us and hang up with us together!</p>
+        <div class="parallax-wrapper2">
+            <div class="content-parallax2">
             </div>
         </div>
 
-        <div class="collapsible-margin">
-            <button class="collapsible"><a>What times are we most active?</a></button>
-            <div class="contentSpoiler">
-                <p>Since our Leader and Officers are located in Europe, many of the FC events will be timed properly to afternoon times around GMT+1. Either way we still got members from all around the globe, so there's nothing to worry about inactivity.</p>
-            </div>
+        <div class="spacehold">
+            <p></p>
         </div>
 
-        <div class="collapsible-margin">
-            <button class="collapsible"><a>What events are we holding and how often are you doing activities together?</a></button>
-            <div class="contentSpoiler">
-                <p>Our Officers are working on hosting many events in 2 or 3 weeks period between each event. We actively think about unique activities to play together with our members. Besides the events you can find us enjoying all game content together ingame, and if you feel like it, you can also join us in the voice chat on Discord!</p>
-            </div>
-        </div>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
 
-        <div class="collapsible-margin">
-            <button class="collapsible"><a>In what datacenter is your FC located in?</a></button>
-            <div class="contentSpoiler">
-                <p>The Eternal Light Company is located in the Chaos datacenter - at Ragnarok. Although even people of cross-servers are very welcome to join our conversations and gameplay!</p>
-            </div>
-        </div>
-
-        <div class="collapsible-margin, last-spoiler">
-            <button class="collapsible"><a>Is your FC looking for an internal static? Are you hardcore raiders?</a></button>
-            <div class="contentSpoiler">
-                <p>Our FC has one static actively raiding the current Edens Gate savage raids. Their goal is to get BiS in a short time. - We are ready to create an additional static if our members wish for it. This doesn't make us a hardcore or semi-hardcore FC. We've got hardcore raiders, semi hardcore raiders but also many casual players, so any kind of gameplay is possible!</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="parallax-wrapper2">
-        <div class="content-parallax2">
-        </div>
-    </div>
-
-    <div class="spacehold">
-        <p></p>
-    </div>
-
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function(){
-                this.classList.toggle("activeSpoiler");
-                var contentSpoiler = this.nextElementSibling;
-                if (contentSpoiler.style.maxHeight) {
-                    contentSpoiler.style.maxHeight = null;
-                }
-                else {
-                    contentSpoiler.style.maxHeight = contentSpoiler.scrollHeight + "px";
-                }
-            })
-        }
-    </script>
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("activeSpoiler");
+                    var contentSpoiler = this.nextElementSibling;
+                    if (contentSpoiler.style.maxHeight) {
+                        contentSpoiler.style.maxHeight = null;
+                    }
+                    else {
+                        contentSpoiler.style.maxHeight = contentSpoiler.scrollHeight + "px";
+                    }
+                })
+            }
+        </script>
 
         <div class="background-events">
             <div class="upcoming-events" id="events">
 
                 <div class="upcoming-lefttxt">
-                    <h1>Join our Events!</h1><br />
-                    <p>Our Free Company events will appear in a regular basis, about twice in a month or once a month. We put much importance into unique and creative events, so we don't have the same events going on repeatingly.
-                    Win awesome prizes, enjoy a lot of fun together with us and much more! Check the upcoming event dates on the right, to not miss any of our events no more!</p>
+                    <h1>Join our Events!</h1><br/>
+                    <p>Our Free Company events will appear in a regular basis, about twice in a month or once a month.
+                        We put much importance into unique and creative events, so we don't have the same events going
+                        on repeatingly.
+                        Win awesome prizes, enjoy a lot of fun together with us and much more! Check the upcoming event
+                        dates on the right, to not miss any of our events no more!</p>
                 </div>
 
                 <div class="events-right">
@@ -451,76 +529,79 @@
             </div>
         </div>
 
-    <div class="lorem2 quotes-wrapper">
+        <div class="lorem2 quotes-wrapper">
 
-        <div class="quote-card">
-            <div class="quote-card-text">
-                <i class="fas fa-quote-left"></i>
-                <h1>
-                    <span>Bjorn Heim</span>
-                    <span>Rizu Hagane</span>
-                    <span>Croella Regali</span>
-                    <span>M'neira Vheli</span>
-                    <span>Junji Ito</span>
-                </h1>
-                <p>
-                    <span>Eternal Light is a group of friends where you can be yourself and hang out!</span>
-                    <span>A happy and inviting family!</span>
-                    <span>Eternal Light is a family where I can feel accepted and cared for!</span>
-                    <span>FC is kind like coming home to my best friends, people you can always just pick up and run with and be your silly self doing it. It's a place that makes me feel welcome and like I can do anything if I just try and work together with my friends.</span>
-                    <span>It's the place where you can be yourself and enjoy the time together with your friends!</span>
-                </p>
+            <div class="quote-card">
+                <div class="quote-card-text">
+                    <i class="fas fa-quote-left"></i>
+                    <h1>
+                        <span>Bjorn Heim</span>
+                        <span>Rizu Hagane</span>
+                        <span>Croella Regali</span>
+                        <span>M'neira Vheli</span>
+                        <span>Junji Ito</span>
+                    </h1>
+                    <p>
+                        <span>Eternal Light is a group of friends where you can be yourself and hang out!</span>
+                        <span>A happy and inviting family!</span>
+                        <span>Eternal Light is a family where I can feel accepted and cared for!</span>
+                        <span>FC is kind like coming home to my best friends, people you can always just pick up and run with and be your silly self doing it. It's a place that makes me feel welcome and like I can do anything if I just try and work together with my friends.</span>
+                        <span>It's the place where you can be yourself and enjoy the time together with your friends!</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="ffxiv-button">
+                <a href="https://de.finalfantasyxiv.com/lodestone/freecompany/9237023573225354173/" target="_blank"
+                   class="quote-button"><img src="media/ffxivlogo.png">
+                    <p>Eternal Light FC - Lodestone (Ragnarok)</p></a>
+            </div>
+            <div class="discord-button">
+                <a href="https://discord.gg/GK3yMB" target="_blank"><img src="media/discord-logo.svg">
+                    <p>Join us on Discord now!</p></a>
             </div>
         </div>
 
-        <div class="ffxiv-button">
-            <a href="https://de.finalfantasyxiv.com/lodestone/freecompany/9237023573225354173/" target="_blank" class="quote-button"><img src="media/ffxivlogo.png"><p>Eternal Light FC - Lodestone (Ragnarok)</p></a>
-        </div>
-        <div class="discord-button">
-            <a href="https://discord.gg/GK3yMB" target="_blank"><img src="media/discord-logo.svg"><p>Join us on Discord now!</p></a>
-        </div>
     </div>
 
-</div>
+    <footer>
+        <div class="footer-upper left-to-right">
+            <div class="footer-crest">
+                <img alt="crest-in-footer" src="media/Crest.gif">
+            </div>
+            <div class="footer-firstchild">
+                <h1>Eternal Light</h1>
+                <p>A close-knit family where everybody is welcome.</p>
+                <p class="bolded"><a href="https://discord.gg/mMWknjF" target="_blank">Join us now!</a></p>
+            </div>
+            <div class="footer-secondchild">
+                <h1>Explore</h1>
+                <a href="#top">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#signup">Apply Now!</a>
+                <a href="#faq">Frequently Asked Questions</a>
+                <a href="#events">Free Company Events</a>
+            </div>
+            <div class="footer-socialmedia">
+                <h1>Follow</h1>
+                <a href="https://twitch.tv/conflickter" target="_blank">Yama Azumi</a>
+                <a href="https://www.twitch.tv/nelael" target="_blank">Caelin Saeria</a>
+                <a href="https://www.twitch.tv/reverie_shirokami" target="_blank">Reverie Shirokami</a>
+            </div>
+            <div class="footer-tos">
+                <h1>Legal</h1>
+                <p>About Us</p>
+                <p>Terms</p>
+                <p>Imprint</p>
+            </div>
+        </div>
 
-<footer>
-    <div class="footer-upper left-to-right">
-        <div class="footer-crest">
-            <img alt="crest-in-footer" src="media/Crest.gif">
+        <div class="footer-lower">
+            <a href="https://kzudev.com/" target="_blank"> &copy; Powered by KZU Dev. - August 2019</a>
         </div>
-        <div class="footer-firstchild">
-            <h1>Eternal Light</h1>
-            <p>A close-knit family where everybody is welcome.</p>
-            <p class="bolded"><a href="https://discord.gg/mMWknjF" target="_blank">Join us now!</a></p>
-        </div>
-        <div class="footer-secondchild">
-            <h1>Explore</h1>
-            <a href="#top">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#signup">Apply Now!</a>
-            <a href="#faq">Frequently Asked Questions</a>
-            <a href="#events">Free Company Events</a>
-        </div>
-        <div class="footer-socialmedia">
-            <h1>Follow</h1>
-            <a href="https://twitch.tv/conflickter" target="_blank">Yama Azumi</a>
-            <a href="https://www.twitch.tv/nelael" target="_blank">Caelin Saeria</a>
-            <a href="https://www.twitch.tv/reverie_shirokami" target="_blank">Reverie Shirokami</a>
-        </div>
-        <div class="footer-tos">
-            <h1>Legal</h1>
-            <p>About Us</p>
-            <p>Terms</p>
-            <p>Imprint</p>
-        </div>
-    </div>
-
-    <div class="footer-lower">
-        <a href="https://kzudev.com/" target="_blank"> &copy; Powered by KZU Dev. - August 2019</a>
-    </div>
 
 
-</footer>
+    </footer>
 </div>
 </body>
 
