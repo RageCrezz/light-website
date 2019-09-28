@@ -1457,7 +1457,7 @@ footer {
 
 .footer-lower a {
     margin: 15px;
-    color: white;
+    color: white !important;
     font-weight: 100;
     text-decoration: none;
 }
